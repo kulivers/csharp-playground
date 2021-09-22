@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Microsoft.VisualBasic;
 
@@ -49,16 +50,34 @@ namespace Collections
             _collection = new int[] { };
         }
 
+        public bool Contains(int item)
+        {
+            return _collection.Contains(item);
+        }
+
         public void CopyTo(int[] array, int arrayIndex)
         {
             //array - куда, arrayIndex - в array, какое место
-            
+
             if (array.Length < _collection.Length + arrayIndex)
             {
                 throw new IndexOutOfRangeException();
             }
-            
+
             Array.Copy(_collection, 0, array, arrayIndex, _collection.Length);
+        }
+
+        public bool Remove(int item)
+        {
+            try
+            {
+                _collection = _collection.Where(val => val != item).ToArray();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public int Count => _collection.Length;
@@ -83,7 +102,7 @@ namespace Collections
             Span<int> span = new int[] { 1, 2, 122, 13, 12, 31, 13 };
             Index index = ^1;
             Range range = index..1;
-            var sub =span.ToArray()[range];
+            var sub = span.ToArray()[range];
             foreach (var i in sub)
             {
                 Console.WriteLine(i);
