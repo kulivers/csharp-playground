@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Events-Delegates-Lambdas/1.0.0": {
+        "dependencies": {
+          "ModifyAccessors": "1.0.0"
+        },
+        "runtime": {
+          "Events-Delegates-Lambdas.dll": {}
+        }
+      },
+      "ModifyAccessors/1.0.0": {
+        "runtime": {
+          "ModifyAccessors.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Events-Delegates-Lambdas/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ModifyAccessors/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

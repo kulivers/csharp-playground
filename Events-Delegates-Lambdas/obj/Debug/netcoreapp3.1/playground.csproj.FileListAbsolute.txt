@@ -1,0 +1,17 @@
+C:\dev\c#\playground\playground\bin\Debug\netcoreapp3.1\playground.exe
+C:\dev\c#\playground\playground\bin\Debug\netcoreapp3.1\playground.deps.json
+C:\dev\c#\playground\playground\bin\Debug\netcoreapp3.1\playground.runtimeconfig.json
+C:\dev\c#\playground\playground\bin\Debug\netcoreapp3.1\playground.runtimeconfig.dev.json
+C:\dev\c#\playground\playground\bin\Debug\netcoreapp3.1\playground.dll
+C:\dev\c#\playground\playground\bin\Debug\netcoreapp3.1\playground.pdb
+C:\dev\c#\playground\playground\obj\Debug\netcoreapp3.1\playground.csprojAssemblyReference.cache
+C:\dev\c#\playground\playground\obj\Debug\netcoreapp3.1\playground.AssemblyInfoInputs.cache
+C:\dev\c#\playground\playground\obj\Debug\netcoreapp3.1\playground.AssemblyInfo.cs
+C:\dev\c#\playground\playground\obj\Debug\netcoreapp3.1\playground.csproj.CoreCompileInputs.cache
+C:\dev\c#\playground\playground\obj\Debug\netcoreapp3.1\playground.dll
+C:\dev\c#\playground\playground\obj\Debug\netcoreapp3.1\playground.pdb
+C:\dev\c#\playground\playground\obj\Debug\netcoreapp3.1\playground.genruntimeconfig.cache
+C:\dev\c#\playground\playground\obj\Debug\netcoreapp3.1\playground.csproj.CopyComplete
+C:\dev\c#\playground\playground\bin\Debug\netcoreapp3.1\ModifyAccessors.exe
+C:\dev\c#\playground\playground\bin\Debug\netcoreapp3.1\ModifyAccessors.dll
+C:\dev\c#\playground\playground\bin\Debug\netcoreapp3.1\ModifyAccessors.pdb

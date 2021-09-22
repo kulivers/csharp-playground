@@ -1,0 +1,17 @@
+C:\dev\c#\playground\Events-Delegates-Lambdas\bin\Debug\netcoreapp3.1\ModifyAccessors.exe
+C:\dev\c#\playground\Events-Delegates-Lambdas\bin\Debug\netcoreapp3.1\Events-Delegates-Lambdas.exe
+C:\dev\c#\playground\Events-Delegates-Lambdas\bin\Debug\netcoreapp3.1\Events-Delegates-Lambdas.deps.json
+C:\dev\c#\playground\Events-Delegates-Lambdas\bin\Debug\netcoreapp3.1\Events-Delegates-Lambdas.runtimeconfig.json
+C:\dev\c#\playground\Events-Delegates-Lambdas\bin\Debug\netcoreapp3.1\Events-Delegates-Lambdas.runtimeconfig.dev.json
+C:\dev\c#\playground\Events-Delegates-Lambdas\bin\Debug\netcoreapp3.1\Events-Delegates-Lambdas.dll
+C:\dev\c#\playground\Events-Delegates-Lambdas\bin\Debug\netcoreapp3.1\Events-Delegates-Lambdas.pdb
+C:\dev\c#\playground\Events-Delegates-Lambdas\bin\Debug\netcoreapp3.1\ModifyAccessors.dll
+C:\dev\c#\playground\Events-Delegates-Lambdas\bin\Debug\netcoreapp3.1\ModifyAccessors.pdb
+C:\dev\c#\playground\Events-Delegates-Lambdas\obj\Debug\netcoreapp3.1\Events-Delegates-Lambdas.csprojAssemblyReference.cache
+C:\dev\c#\playground\Events-Delegates-Lambdas\obj\Debug\netcoreapp3.1\Events-Delegates-Lambdas.AssemblyInfoInputs.cache
+C:\dev\c#\playground\Events-Delegates-Lambdas\obj\Debug\netcoreapp3.1\Events-Delegates-Lambdas.AssemblyInfo.cs
+C:\dev\c#\playground\Events-Delegates-Lambdas\obj\Debug\netcoreapp3.1\Events-Delegates-Lambdas.csproj.CoreCompileInputs.cache
+C:\dev\c#\playground\Events-Delegates-Lambdas\obj\Debug\netcoreapp3.1\Events-Delegates-Lambdas.csproj.CopyComplete
+C:\dev\c#\playground\Events-Delegates-Lambdas\obj\Debug\netcoreapp3.1\Events-Delegates-Lambdas.dll
+C:\dev\c#\playground\Events-Delegates-Lambdas\obj\Debug\netcoreapp3.1\Events-Delegates-Lambdas.pdb
+C:\dev\c#\playground\Events-Delegates-Lambdas\obj\Debug\netcoreapp3.1\Events-Delegates-Lambdas.genruntimeconfig.cache

@@ -1,0 +1,13 @@
+C:\dev\c#\playground\ModifyAccessors\bin\Debug\netcoreapp3.1\ModifyAccessors.exe
+C:\dev\c#\playground\ModifyAccessors\bin\Debug\netcoreapp3.1\ModifyAccessors.deps.json
+C:\dev\c#\playground\ModifyAccessors\bin\Debug\netcoreapp3.1\ModifyAccessors.runtimeconfig.json
+C:\dev\c#\playground\ModifyAccessors\bin\Debug\netcoreapp3.1\ModifyAccessors.runtimeconfig.dev.json
+C:\dev\c#\playground\ModifyAccessors\bin\Debug\netcoreapp3.1\ModifyAccessors.dll
+C:\dev\c#\playground\ModifyAccessors\bin\Debug\netcoreapp3.1\ModifyAccessors.pdb
+C:\dev\c#\playground\ModifyAccessors\obj\Debug\netcoreapp3.1\ModifyAccessors.csprojAssemblyReference.cache
+C:\dev\c#\playground\ModifyAccessors\obj\Debug\netcoreapp3.1\ModifyAccessors.AssemblyInfoInputs.cache
+C:\dev\c#\playground\ModifyAccessors\obj\Debug\netcoreapp3.1\ModifyAccessors.AssemblyInfo.cs
+C:\dev\c#\playground\ModifyAccessors\obj\Debug\netcoreapp3.1\ModifyAccessors.csproj.CoreCompileInputs.cache
+C:\dev\c#\playground\ModifyAccessors\obj\Debug\netcoreapp3.1\ModifyAccessors.dll
+C:\dev\c#\playground\ModifyAccessors\obj\Debug\netcoreapp3.1\ModifyAccessors.pdb
+C:\dev\c#\playground\ModifyAccessors\obj\Debug\netcoreapp3.1\ModifyAccessors.genruntimeconfig.cache

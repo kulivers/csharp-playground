@@ -1,0 +1,13 @@
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\netcoreapp3.1\AddictionalFeatures.exe
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\netcoreapp3.1\AddictionalFeatures.deps.json
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\netcoreapp3.1\AddictionalFeatures.runtimeconfig.json
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\netcoreapp3.1\AddictionalFeatures.runtimeconfig.dev.json
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\netcoreapp3.1\AddictionalFeatures.dll
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\netcoreapp3.1\AddictionalFeatures.pdb
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\netcoreapp3.1\AddictionalFeatures.csprojAssemblyReference.cache
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\netcoreapp3.1\AddictionalFeatures.AssemblyInfoInputs.cache
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\netcoreapp3.1\AddictionalFeatures.AssemblyInfo.cs
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\netcoreapp3.1\AddictionalFeatures.csproj.CoreCompileInputs.cache
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\netcoreapp3.1\AddictionalFeatures.dll
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\netcoreapp3.1\AddictionalFeatures.pdb
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\netcoreapp3.1\AddictionalFeatures.genruntimeconfig.cache

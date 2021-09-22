@@ -1,0 +1,16 @@
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\net5.0\AddictionalFeatures.exe
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\net5.0\AddictionalFeatures.deps.json
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\net5.0\AddictionalFeatures.runtimeconfig.json
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\net5.0\AddictionalFeatures.runtimeconfig.dev.json
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\net5.0\AddictionalFeatures.dll
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\net5.0\ref\AddictionalFeatures.dll
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\net5.0\AddictionalFeatures.pdb
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\AddictionalFeatures.csproj.AssemblyReference.cache
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\AddictionalFeatures.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\AddictionalFeatures.AssemblyInfoInputs.cache
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\AddictionalFeatures.AssemblyInfo.cs
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\AddictionalFeatures.csproj.CoreCompileInputs.cache
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\AddictionalFeatures.dll
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\ref\AddictionalFeatures.dll
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\AddictionalFeatures.pdb
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\AddictionalFeatures.genruntimeconfig.cache
