@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace LINQSamples
 {
-    public class ContainingFunctionsDemos
+    public class ContainingElementsFunctionsDemos
     {
         private static List<Product> Products { get; set; }
 
-        static ContainingFunctionsDemos()
+        static ContainingElementsFunctionsDemos()
         {
             // Load all Product Data
             Products = ProductRepository.GetAll();

@@ -8,10 +8,11 @@ namespace LINQSamples
         {
             BaseLINQOperationsDemos.RunAllMethods();
             SkipTakeSumDistinctDemos.RunAllMethods();
-            ContainingFunctionsDemos.RunAllMethods();
-            CompareAndUnionTwoCollections.RunAllMethods();
-            GroupingData.RunAllMethods();
+            ContainingElementsFunctionsDemos.RunAllMethods();
+            ActionsWithSeveralCollections.RunAllMethods();
+            GroupByFuncs.RunAllMethods();
             AggregateFunctions.RunAllMethods();
+            DefferedAndImmediateTypes.RunAllMethods();
         }
     }
 }

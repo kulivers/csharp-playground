@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{8CC903E2-21F6-4903-BADB-83B2E2D61BCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads", "Threads\Threads.csproj", "{5B679336-43A1-4A70-9E8B-B8B71F179614}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{8CC903E2-21F6-4903-BADB-83B2E2D61BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CC903E2-21F6-4903-BADB-83B2E2D61BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CC903E2-21F6-4903-BADB-83B2E2D61BCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B679336-43A1-4A70-9E8B-B8B71F179614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B679336-43A1-4A70-9E8B-B8B71F179614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B679336-43A1-4A70-9E8B-B8B71F179614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B679336-43A1-4A70-9E8B-B8B71F179614}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -7,12 +7,12 @@ using System.Text;
 
 namespace LINQSamples
 {
-    public class CompareAndUnionTwoCollections
+    public class ActionsWithSeveralCollections
     {
         private static List<Product> Products { get; set; }
         private static List<SalesOrderDetail> Sales { get; set; }
 
-        static CompareAndUnionTwoCollections()
+        static ActionsWithSeveralCollections()
         {
             // Load all Product Data
             Products = ProductRepository.GetAll();

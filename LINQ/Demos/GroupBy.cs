@@ -5,12 +5,12 @@ using System.Text;
 
 namespace LINQSamples
 {
-    public class GroupingData
+    public class GroupByFuncs
     {
         private static List<Product> Products { get; set; }
         private static List<SalesOrderDetail> Sales { get; set; }
 
-        static GroupingData()
+        static GroupByFuncs()
         {
             // Load all Product Data
             Products = ProductRepository.GetAll();
