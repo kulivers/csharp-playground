@@ -67,7 +67,10 @@ namespace Threads
              
         }
 
-
+        static void TaskResult()
+        {
+            
+        }
         private static void Main()
         {
             
