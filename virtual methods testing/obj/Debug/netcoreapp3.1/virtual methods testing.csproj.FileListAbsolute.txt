@@ -4,10 +4,11 @@ C:\dev\c#\playground\virtual methods testing\bin\Debug\netcoreapp3.1\virtual met
 C:\dev\c#\playground\virtual methods testing\bin\Debug\netcoreapp3.1\virtual methods testing.runtimeconfig.dev.json
 C:\dev\c#\playground\virtual methods testing\bin\Debug\netcoreapp3.1\virtual methods testing.dll
 C:\dev\c#\playground\virtual methods testing\bin\Debug\netcoreapp3.1\virtual methods testing.pdb
-C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual methods testing.csprojAssemblyReference.cache
 C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual methods testing.AssemblyInfoInputs.cache
 C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual methods testing.AssemblyInfo.cs
 C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual methods testing.csproj.CoreCompileInputs.cache
 C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual methods testing.dll
 C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual methods testing.pdb
 C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual methods testing.genruntimeconfig.cache
+C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual methods testing.csproj.AssemblyReference.cache
+C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual methods testing.GeneratedMSBuildEditorConfig.editorconfig
