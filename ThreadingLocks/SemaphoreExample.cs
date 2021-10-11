@@ -7,20 +7,20 @@ namespace Threads
     {
         private static Thread[] _threads = new Thread[10];
         private static SemaphoreSlim sem = new SemaphoreSlim(1, 5);
-        //1 = сколько сейчас свободно, 5 - вместимость 
+                                                    //1 = сколько сейчас свободно, 5 - вместимость 
         public static void LocalMain()
         {
             sem.Release();
             sem.Release();
             for (int i = 0; i < 6; i++)
             {
-                _threads[i] = new Thread(Method);
+                _threads[i] = new Thread(SomeMethod);
                 _threads[i].Name = "thread_" + i;
                 _threads[i].Start();
             }
         }
 
-        static void Method()
+        static void SomeMethod()
         {
             CwWaiting();
             sem.Wait();

@@ -8,7 +8,7 @@ namespace Project_for_testing_mutex
     {
         static void Main(string[] args)
         {
-            Mutex _mutex = new Mutex(true, "mutex_name");
+            Mutex _mutex = new Mutex(false, "mutex_name");
 
             Parallel.For(0, 5, (i, state) =>
             {
@@ -27,7 +27,7 @@ namespace Project_for_testing_mutex
                         else
                         {
                             Console.ForegroundColor = ConsoleColor.Blue;
-                            Console.WriteLine("sleepint " + Thread.CurrentThread.Name);
+                            Console.WriteLine("sleeping " + Thread.CurrentThread.Name);
                         }
                     }
                     catch (Exception e)
