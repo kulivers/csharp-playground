@@ -70,8 +70,8 @@ namespace Threads
 
         static void BarrierExample()
         {
-            GettingCoinsThreads gettingCoinsThreads = new GettingCoinsThreads();
-            gettingCoinsThreads.GetSomeMoney();
+            GettingCoinsThreadsExample gettingCoinsThreadsExample = new GettingCoinsThreadsExample();
+            gettingCoinsThreadsExample.GetSomeMoney();
         }
 
         static void RWTokenExample()

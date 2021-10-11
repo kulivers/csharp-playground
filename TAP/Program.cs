@@ -1,29 +1,17 @@
-﻿using System.Threading;
+﻿using System;
 
 namespace ThreadPoolExample
 {
     class Program
     {
-        static void RWDeclaration()
+        static void DiffWithAwaitAndWithout()
         {
-
-            var rwl = new ReaderWriterLockSlim();
-
-            rwl.EnterReadLock();
-            try
-            {
-                // ...
-            }
-            finally
-            {
-                rwl.ExitReadLock();
-            }
+            AwaitDifference.AsyncParallelDiff();
+            Console.ReadLine();
         }
 
         static void Main()
         {
-            RWDeclaration();
-            
         }
     }
 }
