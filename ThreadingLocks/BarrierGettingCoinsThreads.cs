@@ -3,12 +3,12 @@ using System.Threading;
 
 namespace Threads
 {
-    public class GettingCoinsThreads
+    public class GettingCoinsThreadsExample
     {
         private int _bank = 0;
         private Barrier barrier;
 
-        public GettingCoinsThreads()
+        public GettingCoinsThreadsExample()
         {
             barrier = new Barrier(3);
         }
