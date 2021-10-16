@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using TAP.Whens;
 
 namespace TAP
 {
@@ -47,15 +48,23 @@ namespace TAP
         static void DefferedTask(int ms)
         {
             var t = new Task(() => { Console.WriteLine("task"); });
-         
+
             TimerTasks.DeferredTask.RunTaskAfterNSec(t, ms);
+            Console.ReadLine();
+        }
+
+        static void WaitAllTasksExample()
+        {
+            WaitAll.TryingToWaitTasks();
             Console.ReadLine();
         }
 
         static void Main()
         {
             // WhenAnyTesting();
-            DefferedTask(4000);
+            // DefferedTask(4000);
+            // WaitAllTasksExample();
+            WhenAny.WhenAnyExceptionExample();
         }
     }
 }
