@@ -21,7 +21,7 @@ namespace Threads
         {
             var cts = new CancellationTokenSource();
 
-            var ct = new CancellationToken(); //No ct.Cansel()
+            var ct = new CancellationToken(); 
             var cts2 = new CancellationTokenSource();
             var cts3 = new CancellationTokenSource();
             var cts4 = new CancellationTokenSource();

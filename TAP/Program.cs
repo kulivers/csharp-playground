@@ -29,7 +29,6 @@ namespace TAP
                 }
 
                 Console.WriteLine();
-
                 return 1;
             }
 
@@ -39,13 +38,11 @@ namespace TAP
             //something with await
         }
 
+
+        
         static void Main()
         {
-            
-
-
-            // WatchThreadsWhileAwaiting();
-            Console.ReadLine();
+            WhenAnyTaskPlayground.TestWhenAny();
         }
     }
 }

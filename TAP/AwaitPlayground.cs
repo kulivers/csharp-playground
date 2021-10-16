@@ -43,6 +43,12 @@ namespace TAP
             Console.WriteLine("after2");
         }
 
+        public static void ShowWorkingThreads()
+        {
+            ThreadPool.GetAvailableThreads(out int workerThreads, out int completionPortThreads);
+            Console.WriteLine(workerThreads + " - " + completionPortThreads);
+        }
+
         private static void ShowWorkingThreadsEveryXMs(int x)
         {
             new Thread(() =>
@@ -63,8 +69,7 @@ namespace TAP
             Console.WriteLine("continue Main thread");
         }
 
-        
-        
+
         public static void WatchThreadsWhileAwaiting()
         {
             //to be not main thread
