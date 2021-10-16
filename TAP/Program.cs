@@ -8,12 +8,12 @@ namespace TAP
     {
         static void WatchThreadsWhileAwaiting()
         {
-            AwaitPlayground.WatchThreadsWhileAwaiting();
+            Awaits.AwaitPlayground.WatchThreadsWhileAwaiting();
         }
 
         static void DiffWithAwaitAndWithout()
         {
-            AwaitPlayground.AsyncParallelDiff();
+            Awaits.AwaitPlayground.AsyncParallelDiff();
             Console.ReadLine();
         }
 
@@ -39,10 +39,23 @@ namespace TAP
         }
 
 
-        
+        static void WhenAnyTesting()
+        {
+            Whens.WhenAny.TryingToUseWhenAnyWithTwoTasks();
+        }
+
+        static void DefferedTask(int ms)
+        {
+            var t = new Task(() => { Console.WriteLine("task"); });
+         
+            TimerTasks.DeferredTask.RunTaskAfterNSec(t, ms);
+            Console.ReadLine();
+        }
+
         static void Main()
         {
-            WhenAnyTaskPlayground.TestWhenAny();
+            // WhenAnyTesting();
+            DefferedTask(4000);
         }
     }
 }
