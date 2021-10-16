@@ -59,12 +59,26 @@ namespace TAP
             Console.ReadLine();
         }
 
+        static void WhenAnyExceptionExample()
+        {
+            WhenAny.WhenAnyExceptionExample();
+            Console.ReadLine();
+        }
+
+        static async void WhenAllExceptions2()
+        {
+            //??? почему если перед следующим поставить await исключения не выводятся?
+            await WhenAllException.DoMultipleAsync();
+            Console.ReadLine();
+        }
+
         static void Main()
         {
             // WhenAnyTesting();
             // DefferedTask(4000);
             // WaitAllTasksExample();
-            WhenAny.WhenAnyExceptionExample();
+            // WhenAnyExceptionExample();
+            WhenAllExceptions2();
         }
     }
 }

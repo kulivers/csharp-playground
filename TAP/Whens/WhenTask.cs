@@ -113,17 +113,68 @@ namespace TAP
             {
                 //??? why no exception, how to catch or get status, etc...
                 await TwoSecWithArrayException();
-                
+
                 // Console.WriteLine(TwoSecWithArrayException().Exception);
                 // Console.WriteLine(TwoSecWithArrayException().Status);
                 // Console.WriteLine(TwoSecWithArrayException().IsCompleted);
                 // Console.WriteLine(TwoSecWithArrayException().IsFaulted);
                 // Console.WriteLine(TwoSecWithArrayException().IsCompletedSuccessfully);
 
-                
+
                 //     var tasks = new Task[4] { FiveSec(), FiveSecWithNullException(), TwoSec(), TwoSecWithArrayException() };
                 //     var waiter = Task.WhenAny(tasks);
                 //     Debugger.Break();
+            }
+        }
+
+        public class WhenAllException
+        {
+            public static void Factorial(int n)
+            {
+                if (n < 1)
+                    throw new Exception($"{n} : число не должно быть меньше 1");
+                int result = 1;
+                for (int i = 1; i <= n; i++)
+                {
+                    result *= i;
+                }
+
+                Console.WriteLine($"Факториал числа {n} равен {result}");
+            }
+
+            public static async void FactorialAsync(int n)
+            {
+                try
+                {
+                    await Task.Run(() => Factorial(n));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            public static async Task DoMultipleAsync()
+            {
+                Task allTasks = null;
+                try
+                {
+                    Task t1 = Task.Run(() => Factorial(-3));
+                    Task t2 = Task.Run(() => Factorial(-5));
+                    Task t3 = Task.Run(() => Factorial(-10));
+
+                    allTasks = Task.WhenAll(t1, t2, t3);
+                    await allTasks;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Исключение: " + ex.Message);
+                    Console.WriteLine("IsFaulted: " + allTasks.IsFaulted);
+                    foreach (var inx in allTasks.Exception.InnerExceptions)
+                    {
+                        Console.WriteLine("Внутреннее исключение: " + inx.Message);
+                    }
+                }
             }
         }
     }
