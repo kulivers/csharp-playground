@@ -13,7 +13,6 @@ C:\dev\c#\playground\Interfaces\obj\Debug\netcoreapp3.1\Interfaces.genruntimecon
 C:\dev\c#\playground\Interfaces\bin\Debug\netcoreapp3.1\Collections.exe
 C:\dev\c#\playground\Interfaces\bin\Debug\netcoreapp3.1\Collections.dll
 C:\dev\c#\playground\Interfaces\bin\Debug\netcoreapp3.1\Collections.pdb
-C:\dev\c#\playground\Interfaces\obj\Debug\netcoreapp3.1\Interfaces.csproj.CopyComplete
 C:\dev\c#\playground\Interfaces\bin\Debug\netcoreapp3.1\Collections.deps.json
 C:\dev\c#\playground\Interfaces\bin\Debug\netcoreapp3.1\Collections.runtimeconfig.json
 C:\dev\c#\playground\Interfaces\bin\Debug\netcoreapp3.1\Collections.runtimeconfig.dev.json

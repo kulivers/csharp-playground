@@ -85,7 +85,7 @@ namespace TAP
 
         static void Main()
         {
-            // WhenAnyTesting();
+            WhenAnyTesting();
             // WaitAllTasksExample();
             // WhenAnyExceptionExample();
             // WhenAllExceptions2();

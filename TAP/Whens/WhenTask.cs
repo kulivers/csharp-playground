@@ -64,16 +64,24 @@ namespace TAP
 
             static async Task FiveSec()
             {
-                Console.WriteLine("Task FiveSec() starts");
-                Thread.Sleep(5000);
-                Console.WriteLine("Task FiveSec() ends");
+                await Task.Run(() =>
+                {
+                    Console.WriteLine("Task FiveSec() starts");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("Task FiveSec() ends");
+                });
             }
 
             static async Task TwoSec()
             {
-                Console.WriteLine("Task TwoSec() starts");
-                Thread.Sleep(2000);
-                Console.WriteLine("Task TwoSec() ends");
+                var task = new Task(() =>
+                {
+                    Console.WriteLine("Task TwoSec() starts");
+                    Console.WriteLine("Task TwoSec() ends");
+                });
+                task.Start();
+                await task;
+                Console.WriteLine(task.Status);
             }
 
             static async Task FiveSecWithNullException()
@@ -87,7 +95,6 @@ namespace TAP
 
             static async Task TwoSecWithArrayException()
             {
-
                 Task.Run(() =>
                 {
                     int a = 0;
@@ -95,7 +102,6 @@ namespace TAP
                 });
                 int[] arr = new int[1];
                 arr[123] = 121;
-                
             }
 
             public static async void TryingToUseWhenAnyWithTwoTasks()
@@ -111,9 +117,8 @@ namespace TAP
                 //почему без await выводится false? он же заканчивает все равно, там выводится что NSec() ends
 
                 Task delayTask = Task.Delay(1000);
-                Task first = await Task.WhenAny(TwoSec(), FiveSec());
+                var first = await Task.WhenAny(TwoSec());
                 Console.WriteLine(first.Status);
-                Console.WriteLine(first == TwoSec());
             }
 
             public static async void WhenAnyExceptionExample()
