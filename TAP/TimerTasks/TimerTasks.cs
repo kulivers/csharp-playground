@@ -9,7 +9,6 @@ namespace TAP
         {
             public static void RunTaskAfterNSec(Task task, int ms)
             {
-                //??? - why we cant ()=>{}
                 Timer timer = new Timer(_ => { task.Start(); }, null, ms, Timeout.Infinite);
             }
         }

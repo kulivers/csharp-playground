@@ -42,7 +42,7 @@ namespace TAP
 
         static void WhenAnyTesting()
         {
-            Whens.WhenAny.TryingToUseWhenAnyWithTwoTasks();
+            WhenAny.TryingToUseWhenAnyWithTwoTasks();
         }
 
         static void DefferedTask(int ms)
@@ -67,18 +67,28 @@ namespace TAP
 
         static async void WhenAllExceptions2()
         {
-            //??? почему если перед следующим поставить await исключения не выводятся?
-            await WhenAllException.DoMultipleAsync();
+            WhenAllException.DoMultipleAsync();
+            
+            //??? почему ниже исключения не выводятся?
+            try
+            {
+                await WhenAllException.DoMultipleAsync();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
             Console.ReadLine();
         }
 
         static void Main()
         {
             // WhenAnyTesting();
-            // DefferedTask(4000);
             // WaitAllTasksExample();
             // WhenAnyExceptionExample();
-            WhenAllExceptions2();
+            // WhenAllExceptions2();
         }
     }
 }

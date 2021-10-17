@@ -30,11 +30,11 @@ namespace TAP
 
 
             //??? question
-            //waitAll returns true if all of the Task instances completed execution within the allotted time; otherwise, false.
+            //MSDN: waitAll returns true if all of the Task instances completed execution within the allotted time; otherwise, false.
             //why it returns false??
-            public static async void TryingToWaitTasks()
+            public static void TryingToWaitTasks()
             {
-                var tasks = new Task[2] { TwoSec(), FiveSec() };
+                var tasks = new Task[] { TwoSec(), FiveSec() };
                 var res = Task.WaitAll(tasks, 6000);
                 Console.WriteLine(res);
             }
@@ -87,11 +87,15 @@ namespace TAP
 
             static async Task TwoSecWithArrayException()
             {
-                Console.WriteLine("Task TwoSecWithException() starts");
-                Thread.Sleep(2000);
-                Console.WriteLine("Task TwoSec() ends");
+
+                Task.Run(() =>
+                {
+                    int a = 0;
+                    int b = 1 / a;
+                });
                 int[] arr = new int[1];
                 arr[123] = 121;
+                
             }
 
             public static async void TryingToUseWhenAnyWithTwoTasks()
@@ -100,19 +104,31 @@ namespace TAP
                 //Why it runs TwoSec 2 times?? 
                 //And why it doesn't run on parallel?
 
-                //The returned task will always end in the RanToCompletion state with its Result set to the first task to complete.
+                //MSDN: The returned task will always end in the RanToCompletion state with its Result set to the first task to complete.
                 //This is true even if the first task to complete ended in the Canceled or Faulted state.
                 //почему она RanToCompletion если первая Cancel or Faulted? в чем логика
 
+                //почему без await выводится false? он же заканчивает все равно, там выводится что NSec() ends
+
                 Task delayTask = Task.Delay(1000);
                 Task first = await Task.WhenAny(TwoSec(), FiveSec());
+                Console.WriteLine(first.Status);
                 Console.WriteLine(first == TwoSec());
             }
 
             public static async void WhenAnyExceptionExample()
             {
-                //??? why no exception, how to catch or get status, etc...
-                await TwoSecWithArrayException();
+                //??? how to catch inside task exception
+
+                try
+                {
+                    await TwoSecWithArrayException();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
 
                 // Console.WriteLine(TwoSecWithArrayException().Exception);
                 // Console.WriteLine(TwoSecWithArrayException().Status);
