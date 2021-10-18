@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using TAP.Exceptions;
 using TAP.Whens;
 
 namespace TAP
@@ -40,9 +42,9 @@ namespace TAP
         }
 
 
-        static void WhenAnyTesting()
+        static async Task WhenAnyTesting()
         {
-            WhenAny.TryingToUseWhenAnyWithTwoTasks();
+            await WhenAny.TryingToUseWhenAnyWithTwoTasks();
         }
 
         static void DefferedTask(int ms)
@@ -65,10 +67,10 @@ namespace TAP
             Console.ReadLine();
         }
 
-        static async void WhenAllExceptions2()
+        static async Task WhenAllExceptions2()
         {
-            WhenAllException.DoMultipleAsync();
-            
+            // WhenAllException.DoMultipleAsync();
+
             //??? почему ниже исключения не выводятся?
             try
             {
@@ -83,12 +85,36 @@ namespace TAP
             Console.ReadLine();
         }
 
-        static void Main()
+        static async Task ReadingFileAsyncExample()
         {
-            WhenAnyTesting();
-            // WaitAllTasksExample();
-            // WhenAnyExceptionExample();
-            // WhenAllExceptions2();
+            for (int i = 0; i < 5; i++)
+            {
+                await AsyncFileReadingExample.Do();
+                Console.WriteLine("__________________________");
+                Console.WriteLine();
+            }
+        }
+
+        static async Task CatchingTaskWithContinuation()
+        {
+            var task = new Task(() =>
+            {
+                Console.WriteLine("sdad");
+                var a = new int[1];
+                a[4] = 1;
+            });
+            task.Start();
+            task.ForgetSafelyExtention();
+        }
+
+        static async Task AggregateExceptionFromWhenAll()
+        {
+            await SeveralExceptionsInTask.WhenAllWithManyExceptions();
+        }
+
+        static async Task Main()
+        {
+            File.ReadAllBytesAsync("");
         }
     }
 }

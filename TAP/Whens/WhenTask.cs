@@ -35,6 +35,11 @@ namespace TAP
             public static void TryingToWaitTasks()
             {
                 var tasks = new Task[] { TwoSec(), FiveSec() };
+                foreach (var task in tasks)
+                {
+                    task.Start();
+                }
+
                 var res = Task.WaitAll(tasks, 6000);
                 Console.WriteLine(res);
             }
@@ -66,6 +71,7 @@ namespace TAP
             {
                 await Task.Run(() =>
                 {
+                    throw new Exception("five");
                     Console.WriteLine("Task FiveSec() starts");
                     Thread.Sleep(5000);
                     Console.WriteLine("Task FiveSec() ends");
@@ -74,14 +80,13 @@ namespace TAP
 
             static async Task TwoSec()
             {
-                var task = new Task(() =>
+                await Task.Run(async () =>
                 {
+                    throw new Exception("two");
                     Console.WriteLine("Task TwoSec() starts");
+                    await Task.Delay(2000);
                     Console.WriteLine("Task TwoSec() ends");
                 });
-                task.Start();
-                await task;
-                Console.WriteLine(task.Status);
             }
 
             static async Task FiveSecWithNullException()
@@ -104,7 +109,7 @@ namespace TAP
                 arr[123] = 121;
             }
 
-            public static async void TryingToUseWhenAnyWithTwoTasks()
+            public static async Task TryingToUseWhenAnyWithTwoTasks()
             {
                 //???
                 //Why it runs TwoSec 2 times?? 
@@ -117,7 +122,8 @@ namespace TAP
                 //почему без await выводится false? он же заканчивает все равно, там выводится что NSec() ends
 
                 Task delayTask = Task.Delay(1000);
-                var first = await Task.WhenAny(TwoSec());
+                var first = await Task.WhenAny(TwoSec(), FiveSec());
+                await first;
                 Console.WriteLine(first.Status);
             }
 
