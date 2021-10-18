@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using TAP.Exceptions;
@@ -87,7 +86,7 @@ namespace TAP
 
         static async Task ReadingFileAsyncExample()
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 1; i++)
             {
                 await AsyncFileReadingExample.Do();
                 Console.WriteLine("__________________________");
@@ -114,7 +113,7 @@ namespace TAP
 
         static async Task Main()
         {
-            File.ReadAllBytesAsync("");
+            await ReadingFileAsyncExample();
         }
     }
 }

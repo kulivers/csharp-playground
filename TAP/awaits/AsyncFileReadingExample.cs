@@ -16,7 +16,11 @@ namespace TAP
                 using (var sr = new StreamReader(path))
                 {
                     Console.WriteLine("inside before await: " + Thread.CurrentThread.ManagedThreadId);
-                    text = await sr.ReadToEndAsync();
+                    text = await sr.ReadToEndAsync().ContinueWith(t =>
+                    {
+                        Console.WriteLine("system ReadToEndAsync() thread: " + Thread.CurrentThread.ManagedThreadId);
+                        return "as";
+                    });
                     Console.WriteLine("inside after await: " + Thread.CurrentThread.ManagedThreadId);
                 }
             }
