@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace TAP.Exercises
@@ -13,20 +14,27 @@ namespace TAP.Exercises
 
         public void FillTheDict()
         {
-            var rand = new ThreadSafeRandom();
-            var randKey = rand.Next(1, 10);
-            if (_myDict.ContainsKey(randKey))
+            var rand = new Random();
+            for (int i = 0; i < 20; i++)
             {
-                _myDict[randKey]++;
-            }
-            else
-            {
-                _myDict.Add(randKey, 1);
+                var randKey = rand.Next(0, 10);
+                if (_myDict.ContainsKey(randKey))
+                {
+                    _myDict[randKey]++;
+                }
+                else
+                {
+                    _myDict.Add(randKey, 1);
+                }
             }
         }
 
         public void ShowSortedDict()
         {
+            foreach (var pair in _myDict)
+            {
+                Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
+            }
         }
     }
 }

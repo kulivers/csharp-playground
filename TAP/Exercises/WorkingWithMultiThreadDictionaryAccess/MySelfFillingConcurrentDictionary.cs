@@ -23,10 +23,10 @@ namespace TAP.Exercises
 
         public void FillTheDict()
         {
-            var rand = new ThreadSafeRandom();
+            var rand = new Random();
             Parallel.For(0, 20, _ =>
             {
-                var randKey = rand.Next(1, 10);
+                var randKey = rand.Next(0, 10);
                 _myConcurrentDictionary.AddOrUpdate(randKey, 1, (k, v) => ++v);
             });
         }

@@ -120,7 +120,7 @@ namespace TAP
             action();
             stopwatch.Stop();
             var span = stopwatch.Elapsed;
-            Console.WriteLine("ms: {0}", span.Milliseconds);
+            Console.WriteLine("ms: {0}", span.Ticks);
         }
 
         static void Main()
