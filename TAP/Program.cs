@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using TAP.Exceptions;
+using TAP.Exercises;
 using TAP.Whens;
 
 namespace TAP
@@ -111,9 +113,68 @@ namespace TAP
             await SeveralExceptionsInTask.WhenAllWithManyExceptions();
         }
 
-        static async Task Main()
+        static void TimeTracker(Action action)
         {
-            await ReadingFileAsyncExample();
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            action();
+            stopwatch.Stop();
+            var span = stopwatch.Elapsed;
+            Console.WriteLine("ms: {0}", span.Milliseconds);
+        }
+
+        static void Main()
+        {
+            TimeTracker(DictionaryMultiAccessExample);
+            TimeTracker(ConcurrentDictionaryAccessExample);
+            TimeTracker(SingleThreadAccessDictionaryExample);
+        }
+
+
+        private static void SingleThreadAccessDictionaryExample()
+        {
+            try
+            {
+                var example = new MySelfFillingDictionaryWithoutLocking();
+                example.FillTheDict();
+                // example.ShowSortedDict();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        private static void ConcurrentDictionaryAccessExample()
+        {
+            try
+            {
+                var example = new MySelfFillingConcurrentDictionary();
+                example.FillTheDict();
+                // example.ShowSortedDict();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        private static void DictionaryMultiAccessExample()
+        {
+            try
+            {
+                var example = new MySelfFillingDictionary();
+                example.FillTheDict();
+
+                // example.ShowSortedDict();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }

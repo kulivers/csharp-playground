@@ -13,16 +13,14 @@ namespace TAP
             string text;
             try
             {
-                using (var sr = new StreamReader(path))
+                using var sr = new StreamReader(path);
+                Console.WriteLine("inside before await: " + Thread.CurrentThread.ManagedThreadId);
+                text = await sr.ReadToEndAsync().ContinueWith(t =>
                 {
-                    Console.WriteLine("inside before await: " + Thread.CurrentThread.ManagedThreadId);
-                    text = await sr.ReadToEndAsync().ContinueWith(t =>
-                    {
-                        Console.WriteLine("system ReadToEndAsync() thread: " + Thread.CurrentThread.ManagedThreadId);
-                        return "as";
-                    });
-                    Console.WriteLine("inside after await: " + Thread.CurrentThread.ManagedThreadId);
-                }
+                    Console.WriteLine("system ReadToEndAsync() thread: " + Thread.CurrentThread.ManagedThreadId);
+                    return "as";
+                });
+                Console.WriteLine("inside after await: " + Thread.CurrentThread.ManagedThreadId);
             }
             catch (FileNotFoundException ex)
             {
