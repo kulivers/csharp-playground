@@ -137,7 +137,7 @@ namespace TAP
             {
                 var example = new MySelfFillingDictionaryWithoutLocking();
                 example.FillTheDict();
-                // example.ShowSortedDict();
+                example.ShowSortedDict();
             }
             catch (Exception e)
             {
