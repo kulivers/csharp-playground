@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace TAP.Exercises
@@ -27,6 +28,10 @@ namespace TAP.Exercises
 
         public void ShowSortedDict()
         {
+            foreach (var pair in _myDict)
+            {
+                Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
+            }
         }
     }
 }
