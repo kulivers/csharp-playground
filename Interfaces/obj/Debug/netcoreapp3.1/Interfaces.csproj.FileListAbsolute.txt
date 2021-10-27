@@ -18,3 +18,4 @@ C:\dev\c#\playground\Interfaces\bin\Debug\netcoreapp3.1\Collections.runtimeconfi
 C:\dev\c#\playground\Interfaces\bin\Debug\netcoreapp3.1\Collections.runtimeconfig.dev.json
 C:\dev\c#\playground\Interfaces\obj\Debug\netcoreapp3.1\Interfaces.csproj.AssemblyReference.cache
 C:\dev\c#\playground\Interfaces\obj\Debug\netcoreapp3.1\Interfaces.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\c#\playground\Interfaces\obj\Debug\netcoreapp3.1\Interfaces.csproj.CopyComplete

@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using Collections;
-
 
 namespace Interfaces
 {
-    interface IFigure
+    internal interface IFigure
     {
         private const int minArea = 0;
         public static int maxArea = 60;
@@ -19,7 +15,7 @@ namespace Interfaces
         double GetArea();
     }
 
-    class EquilateralTriangle : IFigure
+    internal class EquilateralTriangle : IFigure
     {
         public EquilateralTriangle(int lenOfSide)
         {
@@ -48,10 +44,7 @@ namespace Interfaces
 
             var enumerator = squares.GetEnumerator();
 
-            foreach (var item in squares)
-            {
-                Console.WriteLine(item.LenOfSide);
-            }
+            foreach (var item in squares) Console.WriteLine(item.LenOfSide);
         }
 
         public static void WorkingWithIEnumerable()
@@ -61,7 +54,7 @@ namespace Interfaces
             enumerable.GetEnumerator().Reset();
         }
 
-        static public void LocalMain()
+        public static void LocalMain()
         {
             // OutputLikeEnumerable();
             WorkingWithIEnumerable();
@@ -70,7 +63,7 @@ namespace Interfaces
         }
     }
 
-    interface ISaveble
+    internal interface ISaveble
     {
         void ExplicitlySave();
 
@@ -80,7 +73,7 @@ namespace Interfaces
         }
     }
 
-    class ExplicitInterfaceExample : ISaveble
+    internal class ExplicitInterfaceExample : ISaveble
     {
         void ISaveble.ExplicitlySave()
         {
@@ -107,21 +100,18 @@ namespace Interfaces
         }
     }
 
-    class OddNumerator : IEnumerable<int>
+    internal class OddNumerator : IEnumerable<int>
     {
         public IEnumerator<int> GetEnumerator()
         {
-            int i = 1;
+            var i = 1;
             yield return i;
-            while (true)
-            {
-                yield return i += 2;
-            }
+            while (true) yield return i += 2;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return this.GetEnumerator();
+            return GetEnumerator();
         }
 
         public static void LocalMain()
@@ -136,53 +126,41 @@ namespace Interfaces
         }
     }
 
-    class TriangleComparerClass : IComparer<EquilateralTriangle>
+    internal class TriangleComparerClass : IComparer<EquilateralTriangle>
     {
         public int Compare(EquilateralTriangle x, EquilateralTriangle y)
         {
-            if (y != null && x != null && x.LenOfSide > y.LenOfSide)
-            {
-                return 1;
-            }
+            if (y != null && x != null && x.LenOfSide > y.LenOfSide) return 1;
 
-            if (x != null && y != null && x.LenOfSide < y.LenOfSide)
-            {
-                return -1;
-            }
+            if (x != null && y != null && x.LenOfSide < y.LenOfSide) return -1;
 
             return 0;
         }
 
-        static public void LocalMain()
+        public static void LocalMain()
         {
-            EquilateralTriangle triangle1 = new EquilateralTriangle(1);
-            EquilateralTriangle triangle2 = new EquilateralTriangle(2);
-            EquilateralTriangle triangle3 = new EquilateralTriangle(3);
+            var triangle1 = new EquilateralTriangle(1);
+            var triangle2 = new EquilateralTriangle(2);
+            var triangle3 = new EquilateralTriangle(3);
             var trianglesArr = new[] { triangle2, triangle1, triangle3 };
             Array.Sort(trianglesArr, new TriangleComparerClass());
-            foreach (var triangle in trianglesArr)
-            {
-                Console.WriteLine(triangle.LenOfSide);
-            }
+            foreach (var triangle in trianglesArr) Console.WriteLine(triangle.LenOfSide);
         }
     }
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             // EquilateralTriangle.LocalMain();
-            Dictionary<int, string> countries = new Dictionary<int, string>(5);
+            var countries = new Dictionary<int, string>(5);
             countries.Add(1, null);
             countries.Add(3, "Great Britain");
             countries.Add(2, "USA");
             countries.Add(4, "France");
             countries.Add(5, "China");
 
-            foreach (KeyValuePair<int, string> keyValue in countries)
-            {
-                Console.WriteLine(keyValue.Key + " - " + keyValue.Value);
-            }
+            foreach (var keyValue in countries) Console.WriteLine(keyValue.Key + " - " + keyValue.Value);
 
             // получение элемента по ключу
             var keys = countries.Keys;

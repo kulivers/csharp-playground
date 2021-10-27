@@ -14,22 +14,26 @@ namespace AddictionalFeatures
                 Name = name;
                 Age = age;
             }
-            
+
             // public void Deconstruct(out string name, out int age)
             // {
             //     name = this.Name;
             //     age = this.Age;
             // }
             //SAME
-            public void Deconstruct(out string name, out int age) => (name, age) = (Name, Age);
-            
+            public void Deconstruct(out string name, out int age)
+            {
+                (name, age) = (Name, Age);
+            }
         }
+
         // ------ That all can be:
         public record Person2(string name, int age);
+
         public static void LocalMain()
         {
-            Person ega = new Person("Ega", 22);
-            Person ega2 = new Person("Ega", 22);
+            Person ega = new("Ega", 22);
+            Person ega2 = new("Ega", 22);
             Person youngEga = ega2 with { Age = 14 };
             Console.WriteLine(ega == ega2); //True
             Console.WriteLine(ega.Equals(ega2));
@@ -37,12 +41,11 @@ namespace AddictionalFeatures
             var (name, age) = ega;
             Console.WriteLine(name + " - " + age);
             //----------------------------
-            Person2 leha = new Person2("Lexa", 1000);
+            Person2 leha = new("Lexa", 1000);
             Person2 leha2 = leha;
             Console.WriteLine(leha == leha2);
             var (name2, age2) = leha;
             Console.WriteLine(name2 + " - " + age2);
-            
         }
     }
 }

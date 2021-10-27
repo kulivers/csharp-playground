@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -19,7 +17,7 @@ namespace LINQSamples
             Sales = SalesOrderDetailRepository.GetAll();
         }
 
-        static void ShowProductList(List<Product> list)
+        private static void ShowProductList(List<Product> list)
         {
             list.ForEach(product => { Console.WriteLine(product.ToString()); });
             Console.WriteLine("\nTotal: " + list.Count);
@@ -41,7 +39,7 @@ namespace LINQSamples
 
         private static void LeftOuterJoin()
         {
-            StringBuilder sb = new StringBuilder(2048);
+            var sb = new StringBuilder(2048);
             var query = (from prod in Products
                 join sale in Sales on prod.ProductID equals sale.ProductID
                     into productSales
@@ -88,10 +86,8 @@ namespace LINQSamples
                     if (productSale.Sales.Count() > 0)
                     {
                         foreach (var sale in productSale.Sales)
-                        {
                             Console.Write($"     LineTotal: " + sale.LineTotal + " UnitPrice: " + sale.UnitPrice +
                                           '\n');
-                        }
 
                         Console.WriteLine();
                     }
@@ -108,7 +104,7 @@ namespace LINQSamples
         private static void InnerJoinWithTwoFields()
         {
             short qty = 6;
-            var query = (from prod in Products
+            var query = from prod in Products
                 join sale in Sales on
                     new { prod.ProductID, Qty = qty }
                     equals
@@ -126,8 +122,8 @@ namespace LINQSamples
                     sale.OrderQty,
                     sale.UnitPrice,
                     sale.LineTotal
-                });
-            var res = (Products.Join(Sales, prod => new { prod.ProductID, Qty = qty },
+                };
+            var res = Products.Join(Sales, prod => new { prod.ProductID, Qty = qty },
                 sale => new { sale.ProductID, Qty = sale.OrderQty },
                 (prod, sale) => new
                 {
@@ -141,7 +137,7 @@ namespace LINQSamples
                     sale.OrderQty,
                     sale.UnitPrice,
                     sale.LineTotal
-                }));
+                });
             // res.ToList().ForEach(Console.WriteLine);
         }
 
@@ -152,7 +148,7 @@ namespace LINQSamples
                     on product.ProductID equals sale.ProductID
                 select new
                 {
-                    PID = product.ProductID, SID = sale.ProductID, product.Name, sale.UnitPrice, sale?.SalesOrderID,
+                    PID = product.ProductID, SID = sale.ProductID, product.Name, sale.UnitPrice, sale?.SalesOrderID
                 };
             var query = Products.Join(Sales, product => product.ProductID, sale => sale.ProductID,
                 (product, sale) => new { product.ProductID, product.Name, sale.UnitPrice });
@@ -162,51 +158,51 @@ namespace LINQSamples
         private static void Concat()
         {
             //Dubs
-            List<int> list1 = new List<int> { 1, 2, 3, 4, 5, 6 };
-            List<int> list2 = new List<int> { 4, 5, 6, 11 };
-            List<int> concats = list1.Concat(list2).ToList();
+            var list1 = new List<int> { 1, 2, 3, 4, 5, 6 };
+            var list2 = new List<int> { 4, 5, 6, 11 };
+            var concats = list1.Concat(list2).ToList();
             // concats.ForEach(Console.WriteLine); 
         }
 
         private static void Union()
         {
             //no Dubs
-            List<int> list1 = new List<int> { 1, 2, 3, 4, 5, 6 };
-            List<int> list2 = new List<int> { 4, 5, 6, 11 };
-            List<int> concats = list1.Union(list2).ToList();
+            var list1 = new List<int> { 1, 2, 3, 4, 5, 6 };
+            var list2 = new List<int> { 4, 5, 6, 11 };
+            var concats = list1.Union(list2).ToList();
             // concats.ForEach(Console.WriteLine);
         }
 
         private static void Intersect()
         {
-            List<int> list1 = new List<int> { 1, 2, 3, 4, 5, 6 };
-            List<int> list2 = new List<int> { 4, 5, 6 };
-            List<int> list3 = new List<int> { 11 };
-            List<int> intersections = list1.Intersect(list2).ToList();
-            List<int> intersections2 = list2.Intersect(list3).ToList();
+            var list1 = new List<int> { 1, 2, 3, 4, 5, 6 };
+            var list2 = new List<int> { 4, 5, 6 };
+            var list3 = new List<int> { 11 };
+            var intersections = list1.Intersect(list2).ToList();
+            var intersections2 = list2.Intersect(list3).ToList();
             // intersections.ForEach(Console.WriteLine); 
             // intersections2.ForEach(Console.WriteLine); //NO EXCEPTION
         }
 
         private static void Except()
         {
-            List<int> list1 = new List<int> { 1, 2, 3, 4, 5, 6 };
-            List<int> list2 = new List<int> { 4, 5, 6 };
-            List<int> exceptions = list1.Except(list2).ToList();
-            List<int> exceptions2 = list2.Except(list1).ToList();
+            var list1 = new List<int> { 1, 2, 3, 4, 5, 6 };
+            var list2 = new List<int> { 4, 5, 6 };
+            var exceptions = list1.Except(list2).ToList();
+            var exceptions2 = list2.Except(list1).ToList();
             // exceptions.ForEach(Console.WriteLine); //1,2,3
             // exceptions2.ForEach(Console.WriteLine); //NO EXCEPTION
         }
 
         private static void SequenceEqualInts()
         {
-            List<int> list1 = new List<int> { 1, 2, 3, 4, 5, 6 };
-            List<int> list2 = new List<int> { 1, 2, 3, 4, 5, 6 };
+            var list1 = new List<int> { 1, 2, 3, 4, 5, 6 };
+            var list2 = new List<int> { 1, 2, 3, 4, 5, 6 };
             var val = list1.SequenceEqual(list2);
             // Console.WriteLine(val);
         }
 
-        class ProductComparer : IEqualityComparer<Product>
+        private class ProductComparer : IEqualityComparer<Product>
         {
             public bool Equals(Product x, Product y)
             {
@@ -226,7 +222,7 @@ namespace LINQSamples
             }
         }
 
-        static void SequenceEqualProducts()
+        private static void SequenceEqualProducts()
         {
             var list1 = new List<Product>
             {
@@ -237,7 +233,7 @@ namespace LINQSamples
                     Color = "Black",
                     StandardCost = 1059.31M,
                     ListPrice = 1431.50M,
-                    Size = "58",
+                    Size = "58"
                 },
                 new Product
                 {
@@ -246,7 +242,7 @@ namespace LINQSamples
                     Color = "Red",
                     StandardCost = 1059.31M,
                     ListPrice = 1431.50M,
-                    Size = "58",
+                    Size = "58"
                 },
                 new Product
                 {
@@ -255,7 +251,7 @@ namespace LINQSamples
                     Color = "Red",
                     StandardCost = 13.08M,
                     ListPrice = 34.99M,
-                    Size = null,
+                    Size = null
                 }
             };
             var list2 = new List<Product>
@@ -267,7 +263,7 @@ namespace LINQSamples
                     Color = "Black",
                     StandardCost = 1059.31M,
                     ListPrice = 1431.50M,
-                    Size = "58",
+                    Size = "58"
                 },
                 new Product
                 {
@@ -276,7 +272,7 @@ namespace LINQSamples
                     Color = "Red",
                     StandardCost = 1059.31M,
                     ListPrice = 1431.50M,
-                    Size = "58",
+                    Size = "58"
                 },
                 new Product
                 {
@@ -285,7 +281,7 @@ namespace LINQSamples
                     Color = "Red",
                     StandardCost = 13.08M,
                     ListPrice = 34.99M,
-                    Size = null,
+                    Size = null
                 }
             };
             var val = list1.SequenceEqual(list2, new ProductComparer());

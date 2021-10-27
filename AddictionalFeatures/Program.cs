@@ -1,12 +1,8 @@
-using System;
-
 namespace AddictionalFeatures
 {
-
-    class Program
+    internal class Program
     {
-        
-        static void Main()
+        private static void Main()
         {
             // InitProperties.LocalMain();
             Records.LocalMain();

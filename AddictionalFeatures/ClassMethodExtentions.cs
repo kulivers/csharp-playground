@@ -9,16 +9,12 @@ namespace AddictionalFeatures
             return val / 2 * 2 != val;
         }
 
-        static public int CharCounter(this string str, char c)
+        public static int CharCounter(this string str, char c)
         {
-            int sum = 0;
+            var sum = 0;
             foreach (var symbol in str)
-            {
                 if (symbol == c)
-                {
                     sum++;
-                }
-            }
 
             return sum;
         }
@@ -34,7 +30,7 @@ namespace AddictionalFeatures
 
     public class DisplayClass
     {
-        void DisplayHello()
+        private void DisplayHello()
         {
             Console.WriteLine("Hello mf");
         }
@@ -46,13 +42,11 @@ namespace AddictionalFeatures
         {
             Console.WriteLine(":)");
         }
-
-        
     }
 
-    class MyClass
+    internal class MyClass
     {
-        private DisplayClass DisplayClass = new DisplayClass();
+        private DisplayClass DisplayClass = new();
 
         public MyClass()
         {

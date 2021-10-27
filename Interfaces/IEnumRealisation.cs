@@ -9,8 +9,8 @@ namespace Collections
         {
             public Person(string fName, string lName)
             {
-                this.firstName = fName;
-                this.lastName = lName;
+                firstName = fName;
+                lastName = lName;
             }
 
             public string firstName;
@@ -28,10 +28,7 @@ namespace Collections
             {
                 _people = new Person[pArray.Length];
 
-                for (int i = 0; i < pArray.Length; i++)
-                {
-                    _people[i] = pArray[i];
-                }
+                for (var i = 0; i < pArray.Length; i++) _people[i] = pArray[i];
             }
 
 // Implementation for the GetEnumerator method.
@@ -53,7 +50,7 @@ namespace Collections
 
             // Enumerators are positioned before the first element
             // until the first MoveNext() call.
-            int position = -1;
+            private int position = -1;
 
             public PeopleEnum(Person[] list)
             {
@@ -63,7 +60,7 @@ namespace Collections
             public bool MoveNext()
             {
                 position++;
-                return (position < _people.Length);
+                return position < _people.Length;
             }
 
             public void Reset()
@@ -71,10 +68,7 @@ namespace Collections
                 position = -1;
             }
 
-            object IEnumerator.Current
-            {
-                get { return Current; }
-            }
+            object IEnumerator.Current => Current;
 
             public Person Current
             {
@@ -96,15 +90,15 @@ namespace Collections
         {
             public static void LocalMain()
             {
-                Person[] peopleArray = new Person[3]
+                var peopleArray = new Person[3]
                 {
                     new Person("John", "Smith"),
                     new Person("Jim", "Johnson"),
-                    new Person("Sue", "Rabon"),
+                    new Person("Sue", "Rabon")
                 };
 
-                People peopleList = new People(peopleArray);
-                foreach (Person p in peopleArray)
+                var peopleList = new People(peopleArray);
+                foreach (var p in peopleArray)
                     Console.WriteLine(p.firstName + " " + p.lastName);
             }
         }

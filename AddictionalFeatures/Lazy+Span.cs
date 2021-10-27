@@ -1,13 +1,12 @@
 using System;
-using System.Collections.Generic;
 
 namespace AddictionalFeatures
 {
-    class LazyExample
+    internal class LazyExample
     {
-        class Reader
+        private class Reader
         {
-            Lazy<Library> library = new Lazy<Library>();
+            private Lazy<Library> library = new();
 
             public void ReadBook()
             {
@@ -21,7 +20,7 @@ namespace AddictionalFeatures
             }
         }
 
-        class Library
+        private class Library
         {
             private string[] _books = new string[99];
 
@@ -38,7 +37,7 @@ namespace AddictionalFeatures
         }
     }
 
-    class SpanExample
+    internal class SpanExample
     {
         public void LocalMain()
         {
@@ -56,8 +55,8 @@ namespace AddictionalFeatures
             //------------------------------------------
 
             Span<int> temperaturesSpan = temperatures;
-            Span<int> firstDecade2 = temperaturesSpan.Slice(0, 10); // нет выделения памяти под данные
-            Span<int> lastDecade2 = temperaturesSpan.Slice(20, 10); // нет выделения памяти под данные
+            var firstDecade2 = temperaturesSpan.Slice(0, 10); // нет выделения памяти под данные
+            var lastDecade2 = temperaturesSpan.Slice(20, 10); // нет выделения памяти под данные
             temperaturesSpan[0] = 25; // меняем в temperatureSpan
             Console.WriteLine(firstDecade[0]); //25
         }

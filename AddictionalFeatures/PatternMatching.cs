@@ -2,7 +2,7 @@ using System;
 
 namespace AddictionalFeatures
 {
-    class Employee
+    internal class Employee
     {
         public virtual void Work()
         {
@@ -10,7 +10,7 @@ namespace AddictionalFeatures
         }
     }
 
-    class Manager : Employee
+    internal class Manager : Employee
     {
         public override void Work()
         {
@@ -22,20 +22,16 @@ namespace AddictionalFeatures
 
     public class PatternMatching
     {
-        static void UseEmployee1(Employee emp)
+        private static void UseEmployee1(Employee emp)
         {
             Manager manager = emp as Manager;
             if (manager != null && manager.IsOnVacation == false)
-            {
                 manager.Work();
-            }
             else
-            {
                 Console.WriteLine("Преобразование прошло неудачно");
-            }
         }
 
-        static void UseEmployee2(Employee emp)
+        private static void UseEmployee2(Employee emp)
         {
             try
             {
@@ -49,7 +45,7 @@ namespace AddictionalFeatures
             }
         }
 
-        static void UseEmployee3(Employee emp)
+        private static void UseEmployee3(Employee emp)
         {
             if (emp is Manager)
             {
@@ -63,19 +59,15 @@ namespace AddictionalFeatures
             }
         }
 
-        static void PatternMatchingUseEmployee(Employee emp)
+        private static void PatternMatchingUseEmployee(Employee emp)
         {
             if (emp is Manager manager && manager.IsOnVacation == false)
-            {
                 manager.Work();
-            }
             else
-            {
                 Console.WriteLine("Преобразование не допустимо");
-            }
         }
 
-        static void PatternMatchingSwitch(Employee emp)
+        private static void PatternMatchingSwitch(Employee emp)
         {
             switch (emp)
             {

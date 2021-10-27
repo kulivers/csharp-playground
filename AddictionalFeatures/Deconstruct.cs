@@ -2,15 +2,15 @@ using System;
 
 namespace AddictionalFeatures
 {
-    class Person
+    internal class Person
     {
         public string Name { get; set; }
         public int Age { get; set; }
 
         public void Deconstruct(out string name, out int age)
         {
-            name = this.Name;
-            age = this.Age;
+            name = Name;
+            age = Age;
         }
     }
 
@@ -18,8 +18,8 @@ namespace AddictionalFeatures
     {
         public static void Localmain()
         {
-            Person person = new Person { Name = "Tom", Age = 33 };
-            (string name, int age) = person;
+            Person person = new() { Name = "Tom", Age = 33 };
+            (string name, var age) = person;
             Console.WriteLine(name); // Tom
             Console.WriteLine(age); // 33
         }

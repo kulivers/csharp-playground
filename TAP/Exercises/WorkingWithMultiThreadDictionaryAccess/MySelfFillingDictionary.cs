@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace TAP.Exercises
 {
@@ -14,7 +17,7 @@ namespace TAP.Exercises
     //MemoryCache
     //MultiReadSingleWrite	
     // readmanywritesingle lock
-
+    
 
     public class MySelfFillingDictionary
     {
@@ -26,12 +29,14 @@ namespace TAP.Exercises
             _myDict = new Dictionary<int, int>();
         }
 
+
         private readonly object _locker;
 
-        public void FillTheDict()
+        public void FillTheDictRandNumbers(int threadsCount = 20000)
         {
-            var rand = new Random();
-            Parallel.For(0, 20, _ =>
+            var rand = new ThreadLocal<Random>(() => new Random()).Value;
+
+            Parallel.For(0, threadsCount, _ =>
             {
                 var randKey = rand.Next(0, 10);
                 lock (_locker)
@@ -45,6 +50,46 @@ namespace TAP.Exercises
                         _myDict.Add(randKey, 1);
                     }
                 }
+            });
+        }
+
+        public void FillTheDictFromFile(string path, int threadsCount = 512)
+        {
+            if (threadsCount > 512 || threadsCount < 1)
+            {
+                throw new ArgumentOutOfRangeException("threadsCount is not less than 1 or greater than 512.");
+            }
+
+            var json = JArray.Parse(File.ReadAllText(path));
+
+            json.Children().AsParallel().WithDegreeOfParallelism(threadsCount).ForAll(token =>
+            {
+                if (!_myDict.ContainsKey(token.Value<int>()))
+                {
+                    lock (_locker)
+                    {
+                        if (!_myDict.ContainsKey(token.Value<int>()))
+                            _myDict.Add(token.Value<int>(), 1);
+                    }
+                }
+                else
+                {   
+                    lock (_locker)
+                    {
+                        _myDict[token.Value<int>()]++;
+                    }
+                }
+                // lock (_locker)
+                // {
+                //     if (_myDict.ContainsKey(token.Value<int>()))
+                //     {
+                //         _myDict[token.Value<int>()]++;
+                //     }
+                //     else
+                //     {
+                //         _myDict.Add(token.Value<int>(), 1);
+                //     }
+                // }
             });
         }
 

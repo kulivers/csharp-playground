@@ -1,7 +1,6 @@
 ﻿// C# program to illustrate the
 
 using System;
-using System.Text.Unicode;
 
 namespace EventsDelegatesLambdas
 {
@@ -17,7 +16,7 @@ namespace EventsDelegatesLambdas
             WorkPerfomedEventArgs args); //здесь могут быть любые параметры, но просто это стандарт
 
     //также здесь могут быть и стандартные EventArgs:
-    class Worker
+    internal class Worker
     {
         public event WorkPerfomed WorkPerfomedEvent;
         public EventHandler WorkCompletedEvent;
@@ -25,7 +24,7 @@ namespace EventsDelegatesLambdas
 
         public void DoWork(int hours, WorkType workType)
         {
-            for (int i = 0; i < hours; i++)
+            for (var i = 0; i < hours; i++)
             {
                 System.Threading.Thread.Sleep(500);
                 OnWorkPerfomed(i + 1, workType);
@@ -59,8 +58,7 @@ namespace EventsDelegatesLambdas
     }
 
 
-
-    class Program
+    internal class Program
     {
         public static void Local_Main()
         {
@@ -79,7 +77,7 @@ namespace EventsDelegatesLambdas
             worker.DoWork(8, WorkType.Golf);
         }
 
-        static void WorkCompletedEventHandler(object sender, EventArgs args)
+        private static void WorkCompletedEventHandler(object sender, EventArgs args)
         {
             Console.WriteLine($"Work!Completed!EventHandler, sender: {sender}, args: {args}");
         }

@@ -8,15 +8,18 @@ namespace AddictionalFeatures
         public string Status { get; set; } // статус пользователя
         public string Language { get; set; } // язык пользователя
 
-        static string GetMessage(SwitchArrow p) => p switch
+        private static string GetMessage(SwitchArrow p)
         {
-            { Language: "english" } => "Hello!",
-            { Language: "german", Status: "admin" } => "Hallo, admin!",
-            { Language: "french" } => "Salut!",
-            { } => "undefined"
-        };
+            return p switch
+            {
+                { Language: "english" } => "Hello!",
+                { Language: "german", Status: "admin" } => "Hallo, admin!",
+                { Language: "french" } => "Salut!",
+                { } => "undefined"
+            };
+        }
 
-        int SimpleSelect(int op, int a, int b)
+        private int SimpleSelect(int op, int a, int b)
         {
             switch (op)
             {
@@ -27,9 +30,9 @@ namespace AddictionalFeatures
             }
         }
 
-        static int ArrowSelect(int op, int a, int b)
+        private static int ArrowSelect(int op, int a, int b)
         {
-            int result = op switch
+            var result = op switch
             {
                 1 => a + b,
                 2 => a - b,
@@ -39,16 +42,19 @@ namespace AddictionalFeatures
             return result;
         }
 
-        static string GetWelcome(string lang, string daytime) => (lang, daytime) switch
+        private static string GetWelcome(string lang, string daytime)
         {
-            ("english", "morning") => "Good morning",
-            ("english", "evening") => "Good evening",
-            ("german", "morning") => "Guten Morgen",
-            ("german", "evening") => "Guten Abend",
-            _ => "Здрасьть"
-        };
+            return (lang, daytime) switch
+            {
+                ("english", "morning") => "Good morning",
+                ("english", "evening") => "Good evening",
+                ("german", "morning") => "Guten Morgen",
+                ("german", "evening") => "Guten Abend",
+                _ => "Здрасьть"
+            };
+        }
 
-        static decimal LogicalRelationalSwitch(decimal sum)
+        private static decimal LogicalRelationalSwitch(decimal sum)
         {
             return sum switch
             {
@@ -61,7 +67,6 @@ namespace AddictionalFeatures
 
         public static void LocalMain()
         {
-            
             Console.WriteLine("just check methods in class");
         }
     }

@@ -3,13 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Microsoft.VisualBasic;
 
 [assembly: InternalsVisibleTo("Interfaces")]
 
 namespace Collections
 {
-    class Item
+    internal class Item
     {
         private static int _id;
         public int Id { get; }
@@ -24,9 +23,9 @@ namespace Collections
     }
 
 
-    class IntCollection : ICollection<int>
+    internal class IntCollection : ICollection<int>
     {
-        int[] _collection = { 11, 12, 13, 14, 15 };
+        private int[] _collection = { 11, 12, 13, 14, 15 };
         private int _position = -1;
 
         public IEnumerator<int> GetEnumerator()
@@ -59,10 +58,7 @@ namespace Collections
         {
             //array - куда, arrayIndex - в array, какое место
 
-            if (array.Length < _collection.Length + arrayIndex)
-            {
-                throw new IndexOutOfRangeException();
-            }
+            if (array.Length < _collection.Length + arrayIndex) throw new IndexOutOfRangeException();
 
             Array.Copy(_collection, 0, array, arrayIndex, _collection.Length);
         }
@@ -85,34 +81,28 @@ namespace Collections
         public bool IsReadOnly => true;
     }
 
-    class AddRangeToListExample
+    internal class AddRangeToListExample
     {
         //void AddRange(ICollection col)
-        static public void LocalMain()
+        public static void LocalMain()
         {
-            List<int> list = new List<int>() { 1, 2, 3, 4, 5 };
-            IntCollection intCollection = new IntCollection(); //{ 11, 12, 13, 14, 15 };
+            var list = new List<int>() { 1, 2, 3, 4, 5 };
+            var intCollection = new IntCollection(); //{ 11, 12, 13, 14, 15 };
             list.AddRange(intCollection);
-            foreach (var item in list)
-            {
-                Console.WriteLine(item);
-            }
+            foreach (var item in list) Console.WriteLine(item);
 
             Console.WriteLine("?////////////////");
             Span<int> span = new int[] { 1, 2, 122, 13, 12, 31, 13 };
-            Index index = ^1;
-            Range range = index..1;
+            var index = ^1;
+            var range = index..1;
             var sub = span.ToArray()[range];
-            foreach (var i in sub)
-            {
-                Console.WriteLine(i);
-            }
+            foreach (var i in sub) Console.WriteLine(i);
         }
     }
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             AddRangeToListExample.LocalMain();
         }

@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project for testing mutex",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAP", "TAP\TAP.csproj", "{4FE7488E-57B6-45A7-AB17-546AEF8A3E78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithDataBase", "WorkingWithDataBase\WorkingWithDataBase.csproj", "{C3128589-C56A-4C2C-AD3A-4BD3589290FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +68,9 @@ Global
 		{4FE7488E-57B6-45A7-AB17-546AEF8A3E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FE7488E-57B6-45A7-AB17-546AEF8A3E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FE7488E-57B6-45A7-AB17-546AEF8A3E78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3128589-C56A-4C2C-AD3A-4BD3589290FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3128589-C56A-4C2C-AD3A-4BD3589290FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3128589-C56A-4C2C-AD3A-4BD3589290FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3128589-C56A-4C2C-AD3A-4BD3589290FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
