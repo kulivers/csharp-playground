@@ -35,7 +35,6 @@ namespace TAP.Exercises
             Parallel.For(0, threadsCount, _ =>
             {
                 var randKey = rand.Next(0, 10);
-                // _myConcurrentDictionary.AddOrUpdate(randKey, 1, (k, v) => Interlocked.Increment(ref v));
                 Increment(randKey);
             });
         }

@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "CnEYNoALRvwVWvBPqbIw6CBsinNZzfbwbhbcbA5ArIcUXNYyLs9DO609yZ2eyWP4ns1XFXq+d3Cq8x1MoAmzUw==",
+  "dgSpecHash": "nhZWePQdWc1HVOpnFqdamo6JHF7pLvgo7IoR3HS0gYQaO53Co1hcSu8XZEbv93ir0aCdsbIOAptEL9LpLdwQQg==",
   "success": true,
   "projectFilePath": "C:\\dev\\c#\\playground\\Interfaces\\Interfaces.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Alla\\.nuget\\packages\\documentformat.openxml\\2.13.1\\documentformat.openxml.2.13.1.nupkg.sha512",
+    "C:\\Users\\Alla\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

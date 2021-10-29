@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "pu3y+yG1DFXoglYpzg/hQNpE5roYuJOiVYyLIz/aPVSVv7aRhRRNlMrI39Ry11CqqIvqPFmlervyOrgINqZsIw==",
+  "dgSpecHash": "C4sIFLUAclROq88b2e0GnW99zoEGPyH78UVpW4l+VxEH0UVsjCvwo7VfB71A95epP9LDwjQJjRhqf3cPVndsyA==",
   "success": true,
   "projectFilePath": "C:\\dev\\c#\\playground\\AddictionalFeatures\\AddictionalFeatures.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Alla\\.nuget\\packages\\documentformat.openxml\\2.13.1\\documentformat.openxml.2.13.1.nupkg.sha512",
+    "C:\\Users\\Alla\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

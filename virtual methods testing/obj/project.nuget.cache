@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "5VLu1TTdFqqWZ3cLJq0d54e4I2kzj8Qk5XUD/6WUX/XzM0RbPkzXuc1poXLfDyzc+cFFcHV0HIzONgDHQPXT4Q==",
+  "dgSpecHash": "q6uovnuga6LCKjrz/1cJn6wMa+XjNsyTAXk/FJ1M99YIScxfioENHUFzPs+UoXeRx6h4LN4KXbK0Lv3o+kstBQ==",
   "success": true,
   "projectFilePath": "C:\\dev\\c#\\playground\\virtual methods testing\\virtual methods testing.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Alla\\.nuget\\packages\\documentformat.openxml\\2.13.1\\documentformat.openxml.2.13.1.nupkg.sha512",
+    "C:\\Users\\Alla\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

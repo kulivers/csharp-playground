@@ -21,7 +21,7 @@ namespace Threads
         {
             var cts = new CancellationTokenSource();
 
-            var ct = new CancellationToken(); 
+            var ct = new CancellationToken();
             var cts2 = new CancellationTokenSource();
             var cts3 = new CancellationTokenSource();
             var cts4 = new CancellationTokenSource();
@@ -78,20 +78,21 @@ namespace Threads
         {
             var rwLock = new RWLock();
 
-            using(rwLock.ReadLock())
+            using (rwLock.ReadLock())
             {
-                
             }
+        }
 
+        static void RWExample()
+        {
+            //there is a lot of methods, but here is just example
+            var sync = new SynchronizedCache();
+            sync.MultiAccessToUpgradeableReadLock();
         }
 
         private static void Main()
         {
-            AutoResetEvent autoResetEvent = new AutoResetEvent(false);
-            autoResetEvent.Set();
-            autoResetEvent.WaitOne();
-            
-            BarrierExample();
+            RWExample();
         }
     }
 }
