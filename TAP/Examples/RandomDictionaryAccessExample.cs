@@ -18,7 +18,7 @@ namespace TAP
         {
             try
             {
-                var example = new MySelfFillingDictionaryWithoutLocking();
+                var example = new MySelfFillingSyncDictionary();
                 example.FillTheDictRandNumbers(iterCount);
                 // example.ShowSortedDict();
             }

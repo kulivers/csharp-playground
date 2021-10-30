@@ -1,22 +1,26 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using TAP.Exercises;
 
 namespace TAP
 {
     class Program
     {
-        static void Main()
+        static async Task Main()
         {
-         
+            ShowTrackTimesOfFillers();
         }
 
         static void ShowTrackTimesOfFillers()
         {
-            var timeMultiThreadArray = TimeTracker(() =>
+            var timeMultiThreadArray = TimeTracker(async () =>
             {
-                var multiThreadList = new MultiThreadList(20001);
-                multiThreadList.FillArrayRandoms(20);
+                var w = new MultiThreadList();
+                await w.FillArrayRandomsByMakingNArrays(20001, 20);
+                var dict = w.GetDictionaryOfIntsCount();
+                var sum = dict.Values.Sum();
             });
             var timeConcurrent = TimeTracker(() =>
             {
@@ -31,7 +35,7 @@ namespace TAP
 
             var timeSynchronislyLocking = TimeTracker(() =>
             {
-                var multiThreadList = new MySelfFillingDictionaryWithoutLocking();
+                var multiThreadList = new MySelfFillingSyncDictionary();
                 multiThreadList.FillTheDictRandNumbers(20);
             });
             Console.WriteLine(timeConcurrent);

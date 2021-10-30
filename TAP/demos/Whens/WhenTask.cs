@@ -6,6 +6,45 @@ namespace TAP
 {
     namespace Whens
     {
+        class WhenAll
+        {
+            
+            Task<int> FiveSec()
+            {
+                return new Task<int>(() =>
+                {
+                    Console.WriteLine("Task FiveSec() starts");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("Task FiveSec() ends");
+                    return 5;
+                });
+            }
+
+
+            Task<int> TwoSec()
+            {
+                return new Task<int>(() =>
+                {
+                    Console.WriteLine("Task TwoSec() starts");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Task TwoSec() ends");
+                    return 2;
+                });
+            }
+
+            public async Task WhenAllEnds()
+            {
+                var task2 = TwoSec();
+                var continuation = task2.ContinueWith(res => { Console.WriteLine(res.Result); });
+                task2.Start();
+                // await task2;
+                // Console.WriteLine("awaited task2");
+                var task5 = FiveSec(); //same
+                task5.Start();
+                await Task.WhenAll(task2, task5);
+            }
+        }
+
         public class WaitAll
         {
             static Task FiveSec()

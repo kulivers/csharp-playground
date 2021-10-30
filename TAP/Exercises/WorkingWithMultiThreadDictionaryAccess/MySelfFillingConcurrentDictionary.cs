@@ -29,7 +29,7 @@ namespace TAP.Exercises
             _myConcurrentDictionary.AddOrUpdate(key, 1, (k, v) => Interlocked.Increment(ref v));
         }
 
-        public void FillTheDictRandNumbers(int threadsCount = 20000)
+        public void FillTheDictRandNumbers(int count, int threadsCount = 20000)
         {
             var rand = new ThreadLocal<Random>(() => new Random()).Value;
             Parallel.For(0, threadsCount, _ =>

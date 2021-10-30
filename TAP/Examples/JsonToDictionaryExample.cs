@@ -26,7 +26,7 @@ namespace TAP
         {
             try
             {
-                var example = new MySelfFillingDictionaryWithoutLocking();
+                var example = new MySelfFillingSyncDictionary();
                 example.FillTheDictFromFile(JsonPath);
                 example.ShowSortedDict();
             }

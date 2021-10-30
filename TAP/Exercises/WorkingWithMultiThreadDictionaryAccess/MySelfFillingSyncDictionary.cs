@@ -6,10 +6,10 @@ using Newtonsoft.Json.Linq;
 
 namespace TAP.Exercises
 {
-    public class MySelfFillingDictionaryWithoutLocking
+    public class MySelfFillingSyncDictionary
     {
         private Dictionary<int, int> _myDict;
-        public MySelfFillingDictionaryWithoutLocking()
+        public MySelfFillingSyncDictionary()
         {
             _myDict = new Dictionary<int, int>();
         }
