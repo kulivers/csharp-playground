@@ -44,68 +44,70 @@ namespace TAP
 
         public Dictionary<int, int> GetDictionaryOfIntsCount()
         {
+            var obj = new object();
             try
             {
                 return lsInts.AsParallel().Aggregate(new Dictionary<int, int>(),
                     (seed, itemInThread) =>
                     {
-                        if (!seed.ContainsKey(itemInThread))
+                        lock (obj)
                         {
-                            lock (seed)
+                            if (!seed.ContainsKey(itemInThread))
                             {
                                 if (!seed.ContainsKey(itemInThread))
                                     seed.Add(itemInThread, 1);
                             }
-                        }
-                        else
-                        {   
-                            lock (seed)
+                            else
                             {
-                                seed[itemInThread]++;
+                                lock (obj)
+                                {
+                                    seed[itemInThread]++;
+                                }
                             }
                         }
 
                         return seed;
                     },
                     (a, b) =>
-                    {
+                    {   
                         var resDict = new Dictionary<int, int>();
-                        foreach (var (key, value) in a)
+
+                        lock (obj)
                         {
-                            if (!resDict.ContainsKey(key))
+                            foreach (var (key, value) in a)
                             {
-                                lock (resDict)
+                                if (!resDict.ContainsKey(key))
                                 {
                                     if (!resDict.ContainsKey(key))
-                                        resDict.Add(key, 1);
+                                        resDict.Add(key, value);
+                                }
+                                else
+                                {
+                                    resDict[key] += value;
                                 }
                             }
-                            else
-                            {   
-                                lock (resDict)
+
+                            foreach (var (key, value) in b)
+                            {
+                                if (!resDict.ContainsKey(key))
                                 {
-                                    resDict[key]+=value;
+                                    lock (obj)
+                                    {
+                                        if (!resDict.ContainsKey(key))
+                                            resDict.Add(key, value);
+                                    }
+                                }
+                                else
+                                {
+                                    lock (obj)
+                                    {
+                                        resDict[key] += value;
+                                    }
                                 }
                             }
                         }
-                        foreach (var (key, value) in b)
-                        {
-                            if (!resDict.ContainsKey(key))
-                            {
-                                lock (resDict)
-                                {
-                                    if (!resDict.ContainsKey(key))
-                                        resDict.Add(key, 1);
-                                }
-                            }
-                            else
-                            {   
-                                lock (resDict)
-                                {
-                                    resDict[key]+=value;
-                                }
-                            }
-                        }
+
+
                         return resDict;
                     }, //from all 
                     res => res); //result

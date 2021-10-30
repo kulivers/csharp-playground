@@ -20,4 +20,3 @@ C:\dev\c#\playground\Events-Delegates-Lambdas\obj\Debug\netcoreapp3.1\Events-Del
 C:\dev\c#\playground\Events-Delegates-Lambdas\obj\Debug\netcoreapp3.1\Events-Delegates-Lambdas.GeneratedMSBuildEditorConfig.editorconfig
 C:\dev\c#\playground\Events-Delegates-Lambdas\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
 C:\dev\c#\playground\Events-Delegates-Lambdas\bin\Debug\netcoreapp3.1\System.IO.Packaging.dll
-C:\dev\c#\playground\Events-Delegates-Lambdas\obj\Debug\netcoreapp3.1\Events-Delegates-Lambdas.csproj.CopyComplete
