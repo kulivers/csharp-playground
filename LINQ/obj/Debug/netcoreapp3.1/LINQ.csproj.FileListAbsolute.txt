@@ -12,3 +12,6 @@ C:\dev\c#\playground\LINQ\obj\Debug\netcoreapp3.1\LINQ.csproj.CoreCompileInputs.
 C:\dev\c#\playground\LINQ\obj\Debug\netcoreapp3.1\LINQ.dll
 C:\dev\c#\playground\LINQ\obj\Debug\netcoreapp3.1\LINQ.pdb
 C:\dev\c#\playground\LINQ\obj\Debug\netcoreapp3.1\LINQ.genruntimeconfig.cache
+C:\dev\c#\playground\LINQ\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
+C:\dev\c#\playground\LINQ\bin\Debug\netcoreapp3.1\System.IO.Packaging.dll
+C:\dev\c#\playground\LINQ\obj\Debug\netcoreapp3.1\LINQ.csproj.CopyComplete

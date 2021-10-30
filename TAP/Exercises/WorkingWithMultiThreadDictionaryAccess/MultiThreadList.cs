@@ -44,8 +44,6 @@ namespace TAP
 
         public Dictionary<int, int> GetDictionaryOfIntsCount()
         {
-            
-
             try
             {
                 return lsInts.AsParallel().Aggregate(new Dictionary<int, int>(),

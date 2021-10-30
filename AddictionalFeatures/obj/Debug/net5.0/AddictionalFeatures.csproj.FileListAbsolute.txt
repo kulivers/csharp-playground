@@ -14,3 +14,6 @@ C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\AddictionalFeatures.dl
 C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\ref\AddictionalFeatures.dll
 C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\AddictionalFeatures.pdb
 C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\AddictionalFeatures.genruntimeconfig.cache
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
+C:\dev\c#\playground\AddictionalFeatures\bin\Debug\net5.0\System.IO.Packaging.dll
+C:\dev\c#\playground\AddictionalFeatures\obj\Debug\net5.0\AddictionalFeatures.csproj.CopyComplete

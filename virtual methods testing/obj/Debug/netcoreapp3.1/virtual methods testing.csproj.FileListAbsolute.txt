@@ -12,3 +12,6 @@ C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual met
 C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual methods testing.genruntimeconfig.cache
 C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual methods testing.csproj.AssemblyReference.cache
 C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual methods testing.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\c#\playground\virtual methods testing\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
+C:\dev\c#\playground\virtual methods testing\bin\Debug\netcoreapp3.1\System.IO.Packaging.dll
+C:\dev\c#\playground\virtual methods testing\obj\Debug\netcoreapp3.1\virtual methods testing.csproj.CopyComplete

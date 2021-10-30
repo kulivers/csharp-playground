@@ -12,3 +12,6 @@ C:\dev\c#\playground\ModifyAccessors\obj\Debug\netcoreapp3.1\ModifyAccessors.pdb
 C:\dev\c#\playground\ModifyAccessors\obj\Debug\netcoreapp3.1\ModifyAccessors.genruntimeconfig.cache
 C:\dev\c#\playground\ModifyAccessors\obj\Debug\netcoreapp3.1\ModifyAccessors.csproj.AssemblyReference.cache
 C:\dev\c#\playground\ModifyAccessors\obj\Debug\netcoreapp3.1\ModifyAccessors.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\c#\playground\ModifyAccessors\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
+C:\dev\c#\playground\ModifyAccessors\bin\Debug\netcoreapp3.1\System.IO.Packaging.dll
+C:\dev\c#\playground\ModifyAccessors\obj\Debug\netcoreapp3.1\ModifyAccessors.csproj.CopyComplete

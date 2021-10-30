@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using TAP.Exercises;
 
 namespace TAP
 {
     class Program
     {
-        static async Task Main()
+        static void Main()
         {
             ShowTrackTimesOfFillers();
         }
