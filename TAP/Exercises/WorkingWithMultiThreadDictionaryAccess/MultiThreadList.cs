@@ -44,32 +44,27 @@ namespace TAP
 
         public Dictionary<int, int> GetDictionaryOfIntsCount()
         {
+            lsInts = new List<int> { 1, 2, 1 };
             var obj = new object();
             try
             {
                 return lsInts.AsParallel().Aggregate(new Dictionary<int, int>(),
-                    (seed, itemInThread) =>
+                    (localDict, itemInThread) =>
                     {
-                        lock (obj)
+                        if (!localDict.ContainsKey(itemInThread))
                         {
-                            if (!seed.ContainsKey(itemInThread))
-                            {
-                                if (!seed.ContainsKey(itemInThread))
-                                    seed.Add(itemInThread, 1);
-                            }
-                            else
-                            {
-                                lock (obj)
-                                {
-                                    seed[itemInThread]++;
-                                }
-                            }
+                            if (!localDict.ContainsKey(itemInThread))
+                                localDict.Add(itemInThread, 1);
+                        }
+                        else
+                        {
+                            localDict[itemInThread]++;
                         }
 
-                        return seed;
+                        return localDict;
                     },
                     (a, b) =>
-                    {   
+                    {
                         var resDict = new Dictionary<int, int>();
 
                         lock (obj)

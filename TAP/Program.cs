@@ -11,6 +11,7 @@ namespace TAP
         static async Task Main()
         {
             // ShowTrackTimesOfFillers();
+            
             var w = new MultiThreadList();
             await w.FillArrayRandomsByMakingNArrays(10, 20);
             var dict = w.GetDictionaryOfIntsCount();
