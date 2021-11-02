@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -15,25 +16,45 @@ namespace TAP.Exercises
     // 1-Dict+lock 2-Concurent 3-noLocks
 
 
-    public class MySelfFillingConcurrentDictionary
+    public class MyConcurrentDictionary
     {
-        private ConcurrentDictionary<int, int> _myConcurrentDictionary;
-
-        public MySelfFillingConcurrentDictionary()
+        public MyConcurrentDictionary()
         {
-            _myConcurrentDictionary = new ConcurrentDictionary<int, int>();
+            Dict = new ConcurrentDictionary<int, int>();
+        }
+
+
+        public ConcurrentDictionary<int, int> Dict { get; set; }
+
+        public void FillConcurrentDictionaryFromList(List<int> list, int threadsCount = 20)
+        {
+            if (list == null)
+                throw new NullReferenceException("List is empty");
+            try
+            {
+                Parallel.For((long)0, threadsCount, _ =>
+                {
+                    foreach (var i in list) Increment(i);
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         private void Increment(int key)
         {
-            _myConcurrentDictionary.AddOrUpdate(key, 1, (k, v) => Interlocked.Increment(ref v));
+            Dict.AddOrUpdate(key, 1, (k, v) => Interlocked.Increment(ref v));
         }
 
-        public void FillTheDictRandNumbers(int count, int threadsCount = 20000)
+        public void FillTheDictRandNumbers(int count, int threadsCount = 20)
         {
             var rand = new ThreadLocal<Random>(() => new Random()).Value;
             Parallel.For(0, threadsCount, _ =>
             {
+                if (Dict.Count >= count) return;
                 var randKey = rand.Next(0, 10);
                 Increment(randKey);
             });
@@ -56,12 +77,12 @@ namespace TAP.Exercises
 
         public void ShowSortedDict()
         {
-            foreach (var pair in _myConcurrentDictionary.OrderBy(pair => pair.Key)) //no locking
+            foreach (var pair in Dict.OrderBy(pair => pair.Key)) //no locking
             {
                 Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
             }
 
-            var sum = _myConcurrentDictionary.Sum(pair => pair.Value);
+            var sum = Dict.Sum(pair => pair.Value);
             Console.WriteLine("values sum: {0}", sum);
         }
     }

@@ -2,13 +2,13 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Threads
+namespace ThreadLocks
 {
     internal static class Program
     {
         private static void SemaphoreExample()
         {
-            Threads.SemaphoreExample.LocalMain();
+            ThreadLocks.SemaphoreExample.LocalMain();
         }
 
         private static void MutexExample()
@@ -76,7 +76,7 @@ namespace Threads
 
         static void RWTokenExample()
         {
-            var rwLock = new RWLock();
+            var rwLock = new RWLockDisposable();
 
             using (rwLock.ReadLock())
             {
@@ -90,9 +90,14 @@ namespace Threads
             sync.MultiAccessToUpgradeableReadLock();
         }
 
-        private static void Main()
+        static async Task CountdownEventExample()
         {
-            RWExample();
+            await CustomCDEvent.LocalMain();
+        }
+
+        private static async Task Main()
+        {
+            await CountdownEventExample();
         }
     }
 }

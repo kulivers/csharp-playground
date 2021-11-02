@@ -17,22 +17,62 @@ namespace TAP.Exercises
     //MemoryCache
     //MultiReadSingleWrite	
     // readmanywritesingle lock
-    
 
-    public class MySelfFillingDictionary
+
+    public class MyDictionary
     {
         private Dictionary<int, int> _myDict;
-
-        public MySelfFillingDictionary()
-        {
-            _locker = new object();
-            _myDict = new Dictionary<int, int>();
-        }
 
 
         private readonly object _locker;
 
-        public void FillTheDictRandNumbers(int threadsCount = 20000)
+        public Dictionary<int, int> Dict
+        {
+            get => _myDict;
+            set => _myDict = value;
+        }
+
+        public MyDictionary()
+        {
+            _locker = new object();
+            Dict = new Dictionary<int, int>();
+        }
+        
+        public void FillTheDictFromListWithLock(List<int> list, int threadsCount = 20)
+        {
+            if (list == null)
+            {
+                throw new NullReferenceException("List is empty");
+            }
+
+            try
+            {
+                Parallel.For((long)0, threadsCount, _ =>
+                {
+                    foreach (var i in list)
+                    {
+                        lock (_locker)
+                        {
+                            if (Dict.ContainsKey(i))
+                            {
+                                Dict[i]++;
+                            }
+                            else
+                            {
+                                Dict.Add(i, 1);
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        public void FillTheDictRandNumbersWithLock(int count, int threadsCount = 20)
         {
             var rand = new ThreadLocal<Random>(() => new Random()).Value;
 
@@ -41,13 +81,14 @@ namespace TAP.Exercises
                 var randKey = rand.Next(0, 10);
                 lock (_locker)
                 {
-                    if (_myDict.ContainsKey(randKey))
+                    if (Dict.Count >= count) return;
+                    if (Dict.ContainsKey(randKey))
                     {
-                        _myDict[randKey]++;
+                        Dict[randKey]++;
                     }
                     else
                     {
-                        _myDict.Add(randKey, 1);
+                        Dict.Add(randKey, 1);
                     }
                 }
             });
@@ -64,19 +105,19 @@ namespace TAP.Exercises
 
             json.Children().AsParallel().WithDegreeOfParallelism(threadsCount).ForAll(token =>
             {
-                if (!_myDict.ContainsKey(token.Value<int>()))
+                if (!Dict.ContainsKey(token.Value<int>()))
                 {
                     lock (_locker)
                     {
-                        if (!_myDict.ContainsKey(token.Value<int>()))
-                            _myDict.Add(token.Value<int>(), 1);
+                        if (!Dict.ContainsKey(token.Value<int>()))
+                            Dict.Add(token.Value<int>(), 1);
                     }
                 }
                 else
-                {   
+                {
                     lock (_locker)
                     {
-                        _myDict[token.Value<int>()]++;
+                        Dict[token.Value<int>()]++;
                     }
                 }
                 // lock (_locker)
@@ -98,7 +139,7 @@ namespace TAP.Exercises
             lock (_locker)
             {
                 int sum = 0;
-                foreach (var pair in _myDict.OrderBy(pair => pair.Key))
+                foreach (var pair in Dict.OrderBy(pair => pair.Key))
                 {
                     Console.WriteLine("{0} - {1}", pair.Key, pair.Value);
                     sum++;

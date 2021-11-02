@@ -3,11 +3,11 @@
 using System;
 using System.Threading;
 
-namespace Threads
+namespace ThreadLocks
 {
-    public class Example
+    public class ReaderWriterLock
     {
-        static ReaderWriterLock rwl = new ReaderWriterLock();
+        static System.Threading.ReaderWriterLock rwl = new System.Threading.ReaderWriterLock();
 
         // Define the shared resource protected by the ReaderWriterLock.
         static int resource = 0;

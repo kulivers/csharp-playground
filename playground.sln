@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{8CC903E2-21F6-4903-BADB-83B2E2D61BCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadingLocks", "ThreadingLocks\ThreadingLocks.csproj", "{5B679336-43A1-4A70-9E8B-B8B71F179614}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "locks", "locks\locks.csproj", "{5B679336-43A1-4A70-9E8B-B8B71F179614}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project for testing mutex", "Project for testing mutex\Project for testing mutex.csproj", "{F9B17B5E-B445-4B2F-9028-F430897A0C33}"
 EndProject

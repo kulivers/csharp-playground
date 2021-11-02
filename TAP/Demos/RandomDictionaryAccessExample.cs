@@ -18,7 +18,7 @@ namespace TAP
         {
             try
             {
-                var example = new MySelfFillingSyncDictionary();
+                var example = new MySyncDictionary();
                 example.FillTheDictRandNumbers(iterCount);
                 // example.ShowSortedDict();
             }
@@ -33,8 +33,8 @@ namespace TAP
         {
             try
             {
-                var example = new MySelfFillingDictionary();
-                example.FillTheDictRandNumbers(threadsCount);
+                var example = new MyDictionary();
+                example.FillTheDictRandNumbersWithLock(threadsCount);
 
                 // example.ShowSortedDict();
             }
@@ -49,7 +49,7 @@ namespace TAP
         {
             try
             {
-                var example = new MySelfFillingConcurrentDictionary();
+                var example = new MyConcurrentDictionary();
                 example.FillTheDictRandNumbers(threadsCount);
                 // example.ShowSortedDict();
             }

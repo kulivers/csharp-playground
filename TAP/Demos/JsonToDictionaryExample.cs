@@ -26,7 +26,7 @@ namespace TAP
         {
             try
             {
-                var example = new MySelfFillingSyncDictionary();
+                var example = new MySyncDictionary();
                 example.FillTheDictFromFile(JsonPath);
                 example.ShowSortedDict();
             }
@@ -41,7 +41,7 @@ namespace TAP
         {
             try
             {
-                var example = new MySelfFillingDictionary();
+                var example = new MyDictionary();
                 example.FillTheDictFromFile(JsonPath);
             }
             catch (Exception e)
@@ -55,7 +55,7 @@ namespace TAP
         {
             try
             {
-                var example = new MySelfFillingConcurrentDictionary();
+                var example = new MyConcurrentDictionary();
                 example.FillTheDictFromJsonFile(JsonPath);
             }
             catch (Exception e)

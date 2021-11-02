@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TAP
 {
-    class MultiThreadList
+    class MyList
     {
         private List<int> lsInts;
 
@@ -14,16 +14,22 @@ namespace TAP
         private int _min = 0;
         private int _max = 10;
 
-        public MultiThreadList(int min = 0, int max = 10)
+        public MyList(int min = 0, int max = 10)
         {
             lsInts = new List<int>();
             _min = min;
             _max = max;
         }
 
+        public MyList(List<int> intsArray)
+        {
+            lsInts = intsArray;
+        }
+
 
         Task<List<int>> GetRandomArrayTask(int elsCount, int min, int max)
         {
+            Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
             return new Task<List<int>>(() =>
             {
                 var randomArray = new List<int>();
@@ -44,11 +50,9 @@ namespace TAP
 
         public Dictionary<int, int> GetDictionaryOfIntsCount()
         {
-            lsInts = new List<int> { 1, 2, 1 };
-            var obj = new object();
             try
             {
-                return lsInts.AsParallel().Aggregate(new Dictionary<int, int>(),
+                return lsInts.AsParallel().WithDegreeOfParallelism(100).Aggregate(()=>new Dictionary<int, int>(),
                     (localDict, itemInThread) =>
                     {
                         if (!localDict.ContainsKey(itemInThread))
@@ -67,41 +71,19 @@ namespace TAP
                     {
                         var resDict = new Dictionary<int, int>();
 
-                        lock (obj)
-                        {
-                            foreach (var (key, value) in a)
-                            {
-                                if (!resDict.ContainsKey(key))
-                                {
-                                    if (!resDict.ContainsKey(key))
-                                        resDict.Add(key, value);
-                                }
-                                else
-                                {
-                                    resDict[key] += value;
-                                }
-                            }
 
-                            foreach (var (key, value) in b)
+                        foreach (var pair in b.Concat(a))
+                        {
+                            if (!resDict.ContainsKey(pair.Key))
                             {
-                                if (!resDict.ContainsKey(key))
-                                {
-                                    lock (obj)
-                                    {
-                                        if (!resDict.ContainsKey(key))
-                                            resDict.Add(key, value);
-                                    }
-                                }
-                                else
-                                {
-                                    lock (obj)
-                                    {
-                                        resDict[key] += value;
-                                    }
-                                }
+                                if (!resDict.ContainsKey(pair.Key))
+                                    resDict.Add(pair.Key, pair.Value);
+                            }
+                            else
+                            {
+                                resDict[pair.Key] += pair.Value;
                             }
                         }
-
 
                         return resDict;
                     }, //from all 
@@ -113,7 +95,6 @@ namespace TAP
                 throw;
             }
         }
-
         public async Task FillArrayRandomsByMakingNArrays(int count, int nThreadCount)
         {
             try
@@ -127,14 +108,14 @@ namespace TAP
                     if (i != nThreadCount - 1)
                     {
                         var createArrayTask = GetRandomArrayTask(elsCountInOneArr, _min, _max);
-                        var addArrayToList = createArrayTask.ContinueWith(task =>
+                        var addArrayToListTask = createArrayTask.ContinueWith(task =>
                         {
                             lock (obj)
                             {
                                 AddRangeToList(task.Result);
                             }
                         });
-                        addingTasks.Add(addArrayToList);
+                        addingTasks.Add(addArrayToListTask);
                         createArrayTask.Start();
                     }
                     else

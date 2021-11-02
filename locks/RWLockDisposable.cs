@@ -1,9 +1,9 @@
 using System;
 using System.Threading;
 
-namespace Threads
+namespace ThreadLocks
 {
-    class RWLock : IDisposable
+    class RWLockDisposable : IDisposable
     {
         public struct WriteLockToken : IDisposable
         {

@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 using TAP.Exercises;
 
@@ -8,47 +8,56 @@ namespace TAP
 {
     class Program
     {
-        static async Task Main()
+        static List<int> GetRandomArray(int count, int min = 0, int max = 20)
         {
-            // ShowTrackTimesOfFillers();
-            
-            var w = new MultiThreadList();
-            await w.FillArrayRandomsByMakingNArrays(10, 20);
-            var dict = w.GetDictionaryOfIntsCount();
-            var sum = dict.Values.Sum();
-            Console.WriteLine($"sum: {sum}");
+            var rand = new Random();
+            var list = new List<int>();
+            for (var i = 0; i < count; i++)
+            {
+                list.Add(rand.Next(min, max));
+            }
+
+            return list;
         }
 
-        static void ShowTrackTimesOfFillers()
+
+        static async Task Main()
         {
-            var timeMultiThreadArray = TimeTracker(async () =>
+            ShowTrackTimesOfStatisticCounters();
+        }
+
+        static void ShowTrackTimesOfStatisticCounters()
+        {
+            var randomList = GetRandomArray(2000000);
+            const int threadCount = 8;
+
+            var plinqAggregateTime = TimeTracker(() =>
             {
-                var w = new MultiThreadList();
-                await w.FillArrayRandomsByMakingNArrays(20001, 20);
-                var dict = w.GetDictionaryOfIntsCount();
-                var sum = dict.Values.Sum();
-                Console.WriteLine($"sum: {sum}");
+                var myList = new MyList(randomList);
+                myList.GetDictionaryOfIntsCount();
             });
-            var timeConcurrent = TimeTracker(() =>
+            
+            var ConcurrentTime = TimeTracker(() =>
             {
-                var multiThreadList = new MySelfFillingConcurrentDictionary();
-                multiThreadList.FillTheDictRandNumbers(20);
+                var concurrentDictionary = new MyConcurrentDictionary();
+                concurrentDictionary.FillConcurrentDictionaryFromList(randomList, threadCount);
             });
-            var timeDictionary = TimeTracker(() =>
+            
+            var dictionaryWithLockTime = TimeTracker(() =>
             {
-                var multiThreadList = new MySelfFillingDictionary();
-                multiThreadList.FillTheDictRandNumbers(20);
+                var dictionary = new MyDictionary();
+                dictionary.FillTheDictFromListWithLock(randomList, threadCount);
             });
 
-            var timeSynchronouslyLocking = TimeTracker(() =>
+            var synchronouslyLockingTime = TimeTracker(() =>
             {
-                var multiThreadList = new MySelfFillingSyncDictionary();
-                multiThreadList.FillTheDictRandNumbers(20);
+                var syncDictionary = new MySyncDictionary(randomList);
+                syncDictionary.FillTheDictFromList();
             });
-            Console.WriteLine(timeConcurrent);
-            Console.WriteLine(timeDictionary);
-            Console.WriteLine(timeSynchronouslyLocking);
-            Console.WriteLine(timeMultiThreadArray);
+            Console.WriteLine("Aggregate: " + plinqAggregateTime);
+            Console.WriteLine("concurrent: " + ConcurrentTime);
+            Console.WriteLine("with lock: " + dictionaryWithLockTime);
+            Console.WriteLine("sync: " + synchronouslyLockingTime);
         }
 
         protected static long TimeTracker(Action action)
@@ -58,7 +67,7 @@ namespace TAP
             action();
             stopwatch.Stop();
             var span = stopwatch.Elapsed;
-            return span.Ticks;
+            return span.Milliseconds;
         }
     }
 }

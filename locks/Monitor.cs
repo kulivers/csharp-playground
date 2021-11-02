@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 
-namespace Threads
+namespace ThreadLocks
 {
     internal static class MonitorExamples
     {
